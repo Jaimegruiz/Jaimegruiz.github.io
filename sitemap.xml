@@ -3,19 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>www.tallereselcorcho.es/</loc>
+    <loc>/</loc>
   </url>
   
   <url>
-    <loc>www.tallereselcorcho.es/categories/</loc>
+    <loc>/categories/</loc>
   </url>
   
   <url>
-    <loc>www.tallereselcorcho.es/services/</loc>
+    <loc>/services/</loc>
   </url>
   
   <url>
-    <loc>www.tallereselcorcho.es/tags/</loc>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>
