@@ -313,7 +313,7 @@ table    { border-collapse: collapse; width: 100%; }
 /* Imagen del logo Euro Repar en la navegación */
 .nav-logo-img {
   display: block;
-  height: 64px;
+  height: 38px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -1062,8 +1062,12 @@ a.contacto-dato-value:hover { color: var(--color-accent); }
    ========================================================================== */
 @media (min-width: 640px) {
   :root {
-    --cp: 2rem;
+    --nav-h: 72px;
+    --cp: 2.5rem;
   }
+
+  /* Logo completo en tablet */
+  .nav-logo-img { height: 64px; }
 
   /* Servicios: 2 columnas */
   .servicios-grid {
@@ -1090,10 +1094,6 @@ a.contacto-dato-value:hover { color: var(--color-accent); }
    13. MEDIA QUERIES — DESKTOP (≥ 960px)
    ========================================================================== */
 @media (min-width: 960px) {
-  :root {
-    --nav-h: 72px;
-    --cp: 2.5rem;
-  }
 
   /* Ocultar botón hamburguesa */
   .nav-toggle { display: none; }
