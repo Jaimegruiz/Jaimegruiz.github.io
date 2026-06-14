@@ -1,0 +1,132 @@
+---
+import { site } from '../data/site-data';
+---
+<section id="horarios" class="py-20 bg-slate-100" aria-labelledby="horarios-title">
+  <div class="max-w-[1200px] mx-auto px-5">
+
+    <header class="text-center mb-14">
+      <h2 id="horarios-title" class="section-title text-slate-800">Horarios</h2>
+      <p class="mt-4 text-lg text-slate-500">Estamos a tu disposición de lunes a viernes</p>
+    </header>
+
+    <!-- Banner "Horario de verano activo" — JS lo muestra si procede -->
+    <div
+      id="verano-activo"
+      class="flex items-center gap-3 justify-center mb-8 px-5 py-3 bg-amber-100 border border-amber-300 text-amber-800 rounded-lg font-semibold text-sm"
+      hidden
+      aria-live="polite"
+    >
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      ¡Horario de verano activo!
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+      <!-- Horario habitual -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 bg-slate-50 border-b border-slate-200">
+          <svg class="text-accent" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <h3 class="font-bold text-slate-800">{site.scheduleRegular.label}</h3>
+        </div>
+        <table class="w-full text-sm" aria-label="Horario habitual del taller">
+          <thead>
+            <tr class="bg-slate-50/50 text-slate-500 text-xs uppercase tracking-wide">
+              <th scope="col" class="text-left px-6 py-3 font-semibold">Día</th>
+              <th scope="col" class="text-left px-4 py-3 font-semibold">Mañana</th>
+              <th scope="col" class="text-left px-4 py-3 font-semibold">Tarde</th>
+            </tr>
+          </thead>
+          <tbody>
+            {site.scheduleRegular.rows.map(row => (
+              <tr class:list={['border-t border-slate-100', row.closed && 'opacity-50']}>
+                <td class="px-6 py-3 font-medium text-slate-700">{row.day}</td>
+                {row.closed ? (
+                  <td colspan="2" class="px-4 py-3 text-slate-400 italic">Cerrado</td>
+                ) : (
+                  <>
+                    <td class="px-4 py-3 text-slate-600">{row.morning}</td>
+                    <td class="px-4 py-3 text-slate-600">{row.afternoon}</td>
+                  </>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Horario de verano -->
+      <div class="bg-white rounded-xl shadow-sm border border-amber-200 overflow-hidden">
+        <div class="flex items-center gap-3 px-6 py-4 bg-amber-50 border-b border-amber-200 flex-wrap">
+          <svg class="text-amber-600" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <h3 class="font-bold text-slate-800">{site.scheduleSummer.label}</h3>
+          {site.scheduleSummer.period && (
+            <span class="ml-auto px-2.5 py-1 bg-amber-200 text-amber-800 text-xs font-semibold rounded-full">
+              {site.scheduleSummer.period}
+            </span>
+          )}
+        </div>
+        <table class="w-full text-sm" aria-label="Horario de verano del taller">
+          <thead>
+            <tr class="bg-amber-50/50 text-slate-500 text-xs uppercase tracking-wide">
+              <th scope="col" class="text-left px-6 py-3 font-semibold">Día</th>
+              <th scope="col" class="text-left px-4 py-3 font-semibold" colspan="2">Horario continuo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {site.scheduleSummer.rows.map(row => (
+              <tr class:list={['border-t border-amber-100', row.closed && 'opacity-50']}>
+                <td class="px-6 py-3 font-medium text-slate-700">{row.day}</td>
+                {row.closed ? (
+                  <td colspan="2" class="px-4 py-3 text-slate-400 italic">Cerrado</td>
+                ) : (
+                  <td colspan="2" class="px-4 py-3 text-slate-600">{row.continuous}</td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const banner = document.getElementById('verano-activo');
+  if (banner) {
+    const now   = new Date();
+    const month = now.getMonth() + 1;
+    const day   = now.getDate();
+    const isSummer =
+      (month === 6 && day >= 15) ||
+      month === 7 ||
+      month === 8 ||
+      (month === 9 && day <= 15);
+    if (isSummer) {
+      banner.removeAttribute('hidden');
+    }
+  }
+</script>

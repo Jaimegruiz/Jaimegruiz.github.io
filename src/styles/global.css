@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   BASE — Reset y comportamientos globales
+   ========================================================= */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 68px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    @apply text-slate-800 bg-slate-50;
+  }
+
+  img, svg { display: block; max-width: 100%; }
+  a        { color: inherit; text-decoration: none; }
+  ul, ol   { list-style: none; }
+  button   { cursor: pointer; border: none; background: none; font-family: inherit; }
+  table    { border-collapse: collapse; width: 100%; }
+
+  /* Foco visible — accesibilidad */
+  :focus-visible {
+    outline: 3px solid #FF6600;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* =========================================================
+   UTILIDADES DE SECCIÓN
+   ========================================================= */
+@layer components {
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* Línea decorativa naranja bajo el título */
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 4px;
+    background: #FF6600;
+    border-radius: 2px;
+    margin-top: 0.7rem;
+    margin-inline: auto;
+  }
+}
+
+/* =========================================================
+   HERO — Fondo decorativo con puntos
+   ========================================================= */
+.hero-bg-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 102, 0, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.hero-bg-glow {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 102, 0, 0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* =========================================================
+   HEADER — Transición scrolled
+   ========================================================= */
+.site-header {
+  transition: box-shadow 240ms ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   NAVEGACIÓN — Menú hamburguesa
+   ========================================================= */
+.nav-toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =========================================================
+   SKIP LINK — Accesibilidad
+   ========================================================= */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #FF6600;
+  color: white;
+  font-weight: 700;
+  border-radius: 6px;
+  z-index: 9999;
+  transition: top 200ms;
+}
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* =========================================================
+   ACCESIBILIDAD — Movimiento reducido
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================================
+   MODO DE ALTO CONTRASTE
+   ========================================================= */
+@media (forced-colors: active) {
+  .btn-primary, .btn-cita {
+    border: 2px solid ButtonText;
+  }
+}

@@ -1,0 +1,71 @@
+---
+import { site } from '../data/site-data';
+---
+<section id="nosotros" class="py-20 bg-dark-3 text-white" aria-labelledby="nosotros-title">
+  <div class="max-w-[1200px] mx-auto px-5">
+    <div class="flex flex-col desk:flex-row gap-12 desk:gap-16 items-start">
+
+      <!-- Texto descriptivo -->
+      <div class="flex-1">
+        <h2 id="nosotros-title" class="section-title text-slate-100">Sobre Nosotros</h2>
+
+        <p class="mt-6 text-slate-300 leading-relaxed">
+          Talleres El Corcho es una empresa familiar, actualmente gestionada por la segunda generación.
+          Nuestra principal actividad es la reparación y mantenimiento de todo tipo de vehículos.
+          En el centro de nuestra actividad siempre están nuestros clientes: buscamos la mejor
+          solución para cada uno de ellos, de forma rápida, eficaz y con la máxima calidad.
+        </p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          Cada cliente necesita y requiere una solución diferente; trabajamos cada día para
+          conseguir que esa solución sea rápida, efectiva y de calidad. Porque en Talleres El Corcho,
+          tu vehículo está en las mejores manos.
+        </p>
+
+        <!-- Valores -->
+        <ul class="flex flex-wrap gap-3 mt-8" aria-label="Nuestros valores">
+          {site.values.map(valor => (
+            <li class="flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/15 rounded-full text-sm font-medium text-slate-200">
+              <span class="text-accent font-bold" aria-hidden="true">✓</span>
+              {valor}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Tarjetas destacadas -->
+      <div class="flex flex-col sm:flex-row desk:flex-col gap-4 w-full desk:w-56 shrink-0">
+
+        <div
+          class="flex-1 desk:flex-none bg-gradient-to-br from-accent to-accent-hover rounded-xl p-6 text-center shadow-accent"
+          aria-label="Más de 25 años de experiencia"
+        >
+          <div class="text-5xl font-extrabold text-white leading-none">+25</div>
+          <div class="text-sm font-medium text-white/80 mt-2">años de experiencia</div>
+        </div>
+
+        <div class="flex-1 desk:flex-none flex items-center gap-4 bg-white/10 border border-white/15 rounded-xl p-5">
+          <div class="text-accent shrink-0" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div class="text-sm font-medium text-slate-200">Empresa familiar</div>
+        </div>
+
+        <div class="flex-1 desk:flex-none flex items-center gap-4 bg-white/10 border border-white/15 rounded-xl p-5">
+          <div class="text-accent shrink-0" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="text-sm font-medium text-slate-200">Euro Repar Car Service</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

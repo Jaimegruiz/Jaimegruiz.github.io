@@ -1,0 +1,131 @@
+---
+import { site } from '../data/site-data';
+---
+<header
+  class="site-header fixed top-0 left-0 right-0 z-50 bg-[rgba(13,21,32,0.96)] backdrop-blur-[10px]"
+  id="site-header"
+>
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="max-w-[1200px] mx-auto px-5 h-[68px] flex items-center justify-between">
+
+      <!-- Logo / Nombre del taller -->
+      <a
+        href="#inicio"
+        class="flex items-center gap-3 text-white no-underline"
+        aria-label="Talleres El Corcho — Ir al inicio"
+      >
+        <span aria-hidden="true" class="text-accent">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+          </svg>
+        </span>
+        <span class="text-white font-bold text-base leading-tight hidden sm:block">Talleres El Corcho</span>
+        <span class="w-px h-8 bg-white/20 hidden desk:block" aria-hidden="true"></span>
+        <picture class="hidden desk:block">
+          <source media="(max-width: 639px)" srcset="/images/logo-mobile.png" />
+          <img
+            src="/images/logo-header.png"
+            alt="Euro Repar Car Service"
+            class="h-10 w-auto"
+            height="40"
+            loading="eager"
+          />
+        </picture>
+      </a>
+
+      <!-- Botón hamburguesa (visible solo en móvil/tablet) -->
+      <button
+        class="nav-toggle flex desk:hidden flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-md text-white"
+        id="nav-toggle"
+        aria-label="Abrir menú de navegación"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <!-- Menú de navegación -->
+      <ul
+        class="nav-links fixed desk:static top-[68px] left-0 right-0 desk:flex desk:items-center desk:gap-1
+               bg-[rgba(13,21,32,0.98)] desk:bg-transparent
+               flex-col desk:flex-row
+               py-4 desk:py-0
+               hidden is-open:flex
+               border-t border-white/10 desk:border-none"
+        id="nav-menu"
+        role="list"
+      >
+        {site.nav.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class="nav-link block px-5 py-3 desk:px-3 desk:py-2 text-sm font-medium text-white/80 hover:text-white transition-colors rounded-md desk:hover:bg-white/10"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+        <li class="px-4 desk:px-0 mt-2 desk:mt-0 desk:ml-3">
+          <a
+            href={site.bookingUrl}
+            class="flex items-center justify-center gap-2 px-4 py-2.5 bg-accent hover:bg-accent-hover text-white text-sm font-semibold rounded-md transition-colors min-h-[44px]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Solicitar cita
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
+  const menu   = document.getElementById('nav-menu') as HTMLElement | null;
+  const header = document.getElementById('site-header') as HTMLElement | null;
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    });
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú de navegación');
+      });
+    });
+
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menú de navegación');
+        toggle.focus();
+      }
+    });
+  }
+
+  if (header) {
+    const updateHeader = () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    };
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  }
+</script>

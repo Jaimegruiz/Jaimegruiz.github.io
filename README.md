@@ -1,190 +1,177 @@
-# Talleres El Corcho — Web estática one pager
+# Talleres El Corcho — Sitio web oficial
 
-Web corporativa moderna, responsive y de alto rendimiento para el taller mecánico familiar **Talleres El Corcho** (Euro Repar Car Service), ubicado en Sanlúcar de Barrameda (Cádiz).
-
-Construida con HTML5, CSS3 y JavaScript vanilla puro. Sin frameworks ni dependencias externas.
+Sitio web del taller mecánico **Talleres El Corcho**, en Sanlúcar de Barrameda (Cádiz).
+Construido con **Astro** + **Tailwind CSS**.
 
 ---
 
-## Descripción del proyecto
+## Stack
 
-One pager estático diseñado para transmitir confianza, cercanía, experiencia y profesionalidad técnica. Pensado para ser fácil de mantener tanto por personas como por agentes IA.
+| Tecnología | Versión | Rol |
+|---|---|---|
+| [Astro](https://astro.build) | ^4 | Framework web estático |
+| [Tailwind CSS](https://tailwindcss.com) | ^3 | Framework de estilos |
+| JavaScript vanilla | — | Menú, mapa y detección de verano |
 
+---
 
-## Estructura de archivos
+## Estructura del proyecto
 
 ```
-/
-├── index.html                           # Página principal (one pager completo)
-├── styles.css                           # Estilos CSS (mobile first)
-├── script.js                            # JavaScript vanilla (menú, año, horario verano)
-├── README.md                            # Este fichero
-```
+src/
+  components/
+    Header.astro       — Navegación fija con menú hamburguesa
+    Hero.astro         — Sección hero con CTAs
+    Services.astro     — Grid de 12 tarjetas de servicio
+    About.astro        — Sobre nosotros y valores
+    Hours.astro        — Horarios + banner de verano
+    Contact.astro      — Datos de contacto y botones
+    MapConsent.astro   — Google Maps carga bajo demanda
+    Footer.astro       — Footer con copyright dinámico
+  layouts/
+    BaseLayout.astro   — HTML shell, SEO, Open Graph, JSON-LD
+  pages/
+    index.astro        — Página principal
+    aviso-legal.astro  — Aviso legal (pendiente de completar)
+    privacidad.astro   — Política de privacidad (pendiente)
+    cookies.astro      — Política de cookies (pendiente)
+  data/
+    site-data.ts       — ⭐ Fuente de verdad de todos los datos
+  styles/
+    global.css         — Directivas Tailwind + estilos base
 
----
-
-## Cómo abrir la web
-
-Abre `index.html` directamente en cualquier navegador moderno. No requiere servidor.
-
----
-
-## Cómo modificar servicios
-
-Los servicios se encuentran en `index.html`, dentro de `<section id="servicios">`.
-
-Cada servicio es un `<article class="service-card">` con tres partes:
-
-```html
-<article class="service-card">
-  <div class="service-card-icon" aria-hidden="true">
-    <!-- SVG inline del icono -->
-  </div>
-  <h3 class="service-card-title">Nombre del servicio</h3>
-  <p class="service-card-desc">Descripción breve del servicio.</p>
-</article>
-```
-
-- **Añadir servicio:** duplica un bloque `<article class="service-card">` y edita icono, título y descripción.
-- **Eliminar servicio:** borra el bloque `<article class="service-card">` completo.
-- **Cambiar descripción:** edita el texto del `<p class="service-card-desc">`.
-
----
-
-## Cómo modificar horarios
-
-Los horarios están en `index.html`, dentro de `<section id="horarios">`.
-
-**Horario habitual:** tabla en la primera `.horario-card` (sin clase `--verano`).
-**Horario de verano:** tabla en la segunda `.horario-card--verano`.
-
-Edita los valores `<td>` directamente en cada fila de la tabla.
-
-La detección automática del periodo de verano activo está en `script.js`, sección 6. Para cambiar las fechas del periodo (actualmente 15 jun – 15 sep), modifica las condiciones de la variable `esVerano`:
-
-```js
-var esVerano = (
-  (mes === 6 && dia >= 15) || // ← cambiar 15 por otro día de inicio
-  (mes === 7)              ||
-  (mes === 8)              ||
-  (mes === 9 && dia <= 15)    // ← cambiar 15 por otro día de fin
-);
+public/
+  images/              — Logos (header, mobile, footer)
+  favicon.svg
+  CNAME                — tallereselcorcho.es
+  .nojekyll            — Deshabilita Jekyll en GitHub Pages
 ```
 
 ---
 
-## Cómo modificar datos de contacto
+## Instalación y comandos
 
-Los datos de contacto aparecen en múltiples puntos de `index.html`. Usa **Buscar y reemplazar** para actualizarlos todos a la vez.
+> **Requisito:** Node.js ≥ 18. En este equipo, la versión del sistema (v12) es demasiado antigua.
+> Se descargó Node 20 LTS portable en `C:\Users\U351759\AppData\Local\node20\node-v20.19.3-win-x64\`.
+>
+> Si nvm funciona en un terminal con permisos de admin, ejecuta primero:
+> ```
+> nvm install 20
+> nvm use 20
+> ```
+> Si no, usa el Node portable con el prefijo de ruta indicado abajo.
 
-| Dato | Buscar en el archivo |
-|------|---------------------|
-| Teléfono principal | `tel:+34956360075` y `956 36 00 75` |
-| Móvil / WhatsApp   | `wa.me/34667402426` y `667 40 24 26` |
-| Email              | `tallereselcorcho@gmail.com` |
-| Fax                | `856 92 60 49` |
+```bash
+# Instalar dependencias (con Node 20 portable si el sistema tiene Node < 18)
+$env:PATH = "C:\Users\U351759\AppData\Local\node20\node-v20.19.3-win-x64;$env:PATH"
+npm install
 
-Los comentarios en el HTML indican exactamente qué actualizar:
-- `<!-- Teléfono principal: actualizar... -->`
-- `<!-- Móvil/WhatsApp: actualizar... -->`
-- `<!-- Email: actualizar... -->`
+# Servidor de desarrollo (http://localhost:4321)
+npm run dev
 
----
+# Generar build de producción → dist/
+npm run build
 
-## Cómo cambiar la URL de cita online
-
-La URL de reserva online actual es:
-
-```
-https://es.eurorepar.site/booking?xcode=X382601
-```
-
-Aparece en **5 lugares** de `index.html`: navegación, hero, sección contacto (botón), sección contacto (botón "Solicitar una cita") y footer.
-
-Para actualizar todas las instancias a la vez, usa **Buscar y reemplazar**:
-- Busca: `https://es.eurorepar.site/booking?xcode=X382601`
-- Reemplaza por: la nueva URL completa
-
-También aparece el comentario `<!-- URL de cita: actualizar xcode si cambia -->` en cada instancia.
-
----
-
-## Cómo cambiar el iframe de Google Maps
-
-El iframe está en `index.html`, dentro de `<section id="contacto">`, en el elemento `<div class="map-responsive">`.
-
-Sustituye únicamente el atributo `src` del `<iframe>` por la nueva URL de embed de Google Maps. Mantén el resto de atributos:
-
-```html
-<iframe
-  src="NUEVA_URL_DE_GOOGLE_MAPS"
-  width="100%"
-  height="100%"
-  frameborder="0"
-  style="border: 0;"
-  allowfullscreen
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-  title="Ubicación de Talleres El Corcho en Google Maps"
-  aria-label="Mapa de Google Maps mostrando la ubicación..."
-></iframe>
+# Previsualizar el build localmente
+npm run preview
 ```
 
-Para obtener una nueva URL de embed: Google Maps → compartir → incorporar mapa → copiar src del iframe.
+---
+
+## Cómo modificar datos del negocio
+
+**Edita SOLO el fichero `src/data/site-data.ts`.**
+No necesitas tocar ningún componente.
+
+### Cambiar teléfono
+
+```ts
+phone: { display: '956 36 00 75', href: 'tel:+34956360075' },
+```
+
+### Cambiar móvil / WhatsApp
+
+```ts
+mobile: { display: '667 40 24 26', href: 'https://wa.me/34667402426' },
+```
+
+### Cambiar email
+
+```ts
+email: 'tallereselcorcho@gmail.com',
+```
+
+### Cambiar URL de cita online
+
+```ts
+bookingUrl: 'https://es.eurorepar.site/booking?xcode=X382601',
+```
+Busca `xcode=` en `site-data.ts` y actualiza el valor.
+
+### Cambiar Google Maps
+
+```ts
+mapsEmbedSrc: 'https://www.google.com/maps/embed?pb=...',
+```
+Obtén la URL del iframe desde Google Maps → "Compartir" → "Insertar mapa" → copia la `src`.
+
+### Añadir o quitar servicios
+
+En el array `services` de `site-data.ts`, duplica una entrada y edita `name`, `description` y `svg` (el SVG interno del icono).
+
+### Cambiar horarios
+
+En `scheduleRegular.rows` y `scheduleSummer.rows` edita los valores de `morning`, `afternoon` y `continuous`.
+El periodo de verano se define en `summerPeriod` (meses y días de inicio/fin).
 
 ---
 
-## Cómo publicar en GitHub Pages
+## Publicar en GitHub Pages
 
-1. Crea un repositorio público en [github.com](https://github.com).
-2. Sube los archivos `index.html`, `styles.css` y `script.js` a la rama `main`.
-3. Ve a **Settings → Pages** del repositorio.
-4. En **Source**, selecciona la rama `main` y la carpeta `/ (root)`.
-5. Guarda. La web estará disponible en:
-   ```
-   https://<tu-usuario>.github.io/<nombre-del-repositorio>/
-   ```
+1. El branch `astro` debe tener GitHub Actions configurado para construir y desplegar.
+2. Ejecutar `npm run build` genera `dist/`.
+3. El archivo `dist/CNAME` contiene `tallereselcorcho.es` (se copia automáticamente desde `public/`).
+4. El archivo `dist/.nojekyll` deshabilita Jekyll (también copiado desde `public/`).
+5. En la configuración del repositorio GitHub → Pages → seleccionar el branch y directorio correctos.
 
-El archivo `README.md` no es necesario subirlos para el funcionamiento de la web, pero pueden incluirse para mantener el contexto del proyecto.
+Workflow de ejemplo (`.github/workflows/deploy.yml`):
+
+```yaml
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [astro]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/deploy-pages@v4
+        with:
+          folder: dist
+```
 
 ---
 
-## Estructura del CSS (para búsqueda rápida)
+## Fuentes de datos
 
-El fichero `styles.css` está organizado en secciones numeradas. Busca el número para ir directamente:
-
-| Sección | Contenido |
-|---------|-----------|
-| `1.` | Variables CSS (`:root`) |
-| `2.` | Reset y base |
-| `3.` | Utilidades globales (contenedor, sección, títulos) |
-| `4.` | Botones |
-| `5.` | Header / navegación |
-| `6.` | Hero |
-| `7.` | Servicios |
-| `8.` | Sobre nosotros |
-| `9.` | Horarios |
-| `10.` | Contacto |
-| `11.` | Footer |
-| `12.` | Media queries — Tablet (≥ 640px) |
-| `13.` | Media queries — Desktop (≥ 960px) |
-| `14.` | Media queries — Desktop grande (≥ 1200px) |
-| `15.` | Accesibilidad |
-
-Para cambiar colores: edita las variables en `:root` (sección 1 de `styles.css`).
-Para cambiar el color de acento rojo: busca `--color-accent`.
+- Fuente principal de datos del negocio: `src/data/site-data.ts`
+- Fuente documental original (no versionada): `sample-web-convertido-actualizado.md`
+- El horario habitual (L-V 08:00–13:30 / 15:30–18:00) fue confirmado directamente por el cliente en junio de 2026.
 
 ---
 
 ## Notas para futuros agentes IA
 
-- **No inventar** datos de contacto, horarios, servicios ni ubicación no presentes en el Markdown.
-- La URL real de cita online es `https://es.eurorepar.site/booking?xcode=X382601`. No modificar sin confirmación.
-- El iframe de Google Maps es el proporcionado en el Markdown. No sustituir por otro sin verificar.
-- El código **no está minificado** deliberadamente para facilitar el mantenimiento por agentes IA y humanos.
-- `script.js` está completamente comentado. Leerlo antes de modificarlo.
-- `styles.css` usa comentarios de sección numerados. Útiles para localización rápida.
-- Los comentarios en `index.html` indican exactamente qué campos hay que actualizar si cambian los datos del negocio.
-- El diseño es **mobile first**. Breakpoints: 640px (tablet), 960px (desktop), 1200px (desktop XL).
-- No añadir librerías externas sin justificación clara. El proyecto funciona sin dependencias.
-- La web funciona correctamente **aunque JavaScript esté desactivado** (el JS solo añade mejoras no críticas).
+- **No inventar datos**: usa exclusivamente `src/data/site-data.ts` como fuente.
+- **No modificar la URL del mapa** de Google Maps sin verificar con el cliente.
+- **No modificar la URL de cita online** (`bookingUrl`) sin verificar el `xcode`.
+- Las páginas legales (`aviso-legal`, `privacidad`, `cookies`) están estructuradas con `<!-- TODO -->` para que un abogado complete el texto.
+- El mapa de Google Maps se carga solo tras interacción del usuario (componente `MapConsent.astro`). No cambiar este comportamiento.
+- La detección del horario de verano se hace en el cliente (JavaScript), no en build-time, porque el sitio es estático en GitHub Pages.
+- El breakpoint `desk` (960px) es un custom breakpoint de Tailwind donde el menú de navegación cambia de hamburguesa a horizontal.
