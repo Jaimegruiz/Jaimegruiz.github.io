@@ -446,18 +446,7 @@ table    { border-collapse: collapse; width: 100%; }
 
 /* Franja diagonal de acento rojo */
 .hero-bg-stripe {
-  position: absolute;
-  right: -5%;
-  top: 0;
-  bottom: 0;
-  width: 60%;
-  clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
-  background: linear-gradient(
-    160deg,
-    rgba(255, 102, 0, 0.07) 0%,
-    rgba(255, 102, 0, 0.03) 60%,
-    transparent 100%
-  );
+  display: none;
 }
 
 /* Grid de puntos decorativos */
@@ -470,26 +459,12 @@ table    { border-collapse: collapse; width: 100%; }
 
 /* Resplandor de acento */
 .hero-bg-glow {
-  position: absolute;
-  bottom: -20%;
-  right: 5%;
-  width: 40vw;
-  height: 40vw;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 102, 0, 0.08) 0%, transparent 70%);
-  filter: blur(40px);
+  display: none;
 }
 
 /* Borde izquierdo de acento */
 .hero::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, transparent, var(--color-accent) 40%, transparent);
-  z-index: 1;
+  display: none;
 }
 
 .hero .container { position: relative; z-index: 1; }
