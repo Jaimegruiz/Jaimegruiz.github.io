@@ -138,4 +138,81 @@
     }
   }
 
+
+  // ----------------------------------------------------------
+  // 7. INDICADOR "ABIERTO HOY" EN LOS HORARIOS
+  // ----------------------------------------------------------
+  var hoyDia = new Date().getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+  
+  // Buscar la tarjeta de horario activa
+  var hoy = new Date();
+  var mes = hoy.getMonth() + 1;
+  var dia = hoy.getDate();
+  var esVeranoActivo = (
+    (mes === 6 && dia >= 15) ||
+    (mes === 7)              ||
+    (mes === 8)              ||
+    (mes === 9 && dia <= 15)
+  );
+
+  var activeCardSelector = esVeranoActivo ? '.horario-card--verano' : '.horario-card:not(.horario-card--verano)';
+  var activeCard = document.querySelector(activeCardSelector);
+  
+  if (activeCard) {
+    // Buscar la fila correspondiente al día actual
+    var row = activeCard.querySelector('tr[data-day="' + hoyDia + '"]');
+    if (row) {
+      row.classList.add('is-today');
+    }
+  }
+
+
+  // ----------------------------------------------------------
+  // 8. NAVIGATION SCROLL SPY
+  // ----------------------------------------------------------
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-link:not(.nav-link--cta)');
+
+  if (sections.length > 0 && navLinks.length > 0) {
+    var headerHeight = header ? header.offsetHeight : 72;
+
+    function updateActiveNavLink() {
+      var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+      var currentSectionId = '';
+
+      // Determinar qué sección está actualmente en vista
+      sections.forEach(function (section) {
+        var sectionTop = section.offsetTop - headerHeight - 20; // offset de 20px para mejorar la activación
+        var sectionHeight = section.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      // Si el scroll está casi al final, forzar activación de "contacto"
+      if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 10) {
+        currentSectionId = 'contacto';
+      }
+
+      // Si está arriba del todo, forzar "inicio"
+      if (scrollPosition < 50) {
+        currentSectionId = 'inicio';
+      }
+
+      // Asignar clase active
+      navLinks.forEach(function (link) {
+        link.classList.remove('nav-link--active');
+        if (link.getAttribute('href') === '#' + currentSectionId) {
+          link.classList.add('nav-link--active');
+        }
+      });
+    }
+
+    // Escuchar scroll (passive: true mejora el rendimiento)
+    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+    
+    // Ejecutar al cargar la página
+    updateActiveNavLink();
+  }
+
 })();
