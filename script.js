@@ -145,7 +145,7 @@
     // Comprobar si es fin de semana
     if (diaSemana === 0 || diaSemana === 6) {
       estaAbierto = false;
-      textoTitulo = 'Cerrado en este momento';
+      textoTitulo = 'Cerrado';
       textoDesc = 'Abrimos el lunes a las 08:00 h';
     } else if (esVerano) {
       // HORARIO DE VERANO: 08:00 (480 min) a 15:00 (900 min)
@@ -155,10 +155,10 @@
       if (minutosActuales >= aperturaVerano && minutosActuales < cierreVerano) {
         estaAbierto = true;
         textoTitulo = 'Abierto ahora';
-        textoDesc = 'Horario de verano continuo hasta las 15:00 h';
+        textoDesc = 'Hoy estamos hasta las 15:00 h (horario de verano)';
       } else if (minutosActuales < aperturaVerano) {
         estaAbierto = false;
-        textoTitulo = 'Cerrado en este momento';
+        textoTitulo = 'Cerrado';
         textoDesc = 'Abrimos hoy a las 08:00 h';
       } else {
         estaAbierto = false;
@@ -180,23 +180,23 @@
       if (minutosActuales >= mMananaApertura && minutosActuales < mMananaCierre) {
         estaAbierto = true;
         textoTitulo = 'Abierto ahora';
-        textoDesc = 'Turno de mañana hasta las 13:30 (Tarde de 15:30 a 18:00)';
+        textoDesc = 'Mañana hasta las 13:30 h · Tarde de 15:30 a 18:00 h';
       } else if (minutosActuales >= mMananaCierre && minutosActuales < mTardeApertura) {
         estaAbierto = false;
         textoTitulo = 'Cerrado al mediodía';
-        textoDesc = 'Reanudamos atención hoy a las 15:30 h';
+        textoDesc = 'Volvemos a abrir hoy a las 15:30 h';
       } else if (minutosActuales >= mTardeApertura && minutosActuales < mTardeCierre) {
         estaAbierto = true;
         textoTitulo = 'Abierto ahora';
-        textoDesc = 'Turno de tarde hasta las 18:00 h';
+        textoDesc = 'Estamos abiertos hasta las 18:00 h';
       } else if (minutosActuales < mMananaApertura) {
         estaAbierto = false;
-        textoTitulo = 'Cerrado en este momento';
+        textoTitulo = 'Cerrado';
         textoDesc = 'Abrimos hoy a las 08:00 h';
       } else {
         estaAbierto = false;
         if (diaSemana === 5) {
-          textoTitulo = 'Cerrado por el fin de semana';
+          textoTitulo = 'Cerrado';
           textoDesc = 'Abrimos el lunes a las 08:00 h';
         } else {
           textoTitulo = 'Cerrado por hoy';
