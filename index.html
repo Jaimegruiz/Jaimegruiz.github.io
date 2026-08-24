@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Talleres El Corcho — Taller mecánico familiar en Sanlúcar de Barrameda con más de 25 años de experiencia. Reparación, mantenimiento, ITV, neumáticos, frenos y mucho más." />
-  <title>Talleres El Corcho | Taller mecánico en Sanlúcar de Barrameda</title>
+  <meta name="description" content="Talleres El Corcho — Taller mecánico familiar en Sanlúcar de Barrameda (Cádiz) con más de 25 años de experiencia. Reparación, mantenimiento, ITV, neumáticos, climatización y mecánica general. Red Euro Repar Car Service." />
+  <meta name="theme-color" content="#0d1520" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Talleres El Corcho | Taller mecánico en Sanlúcar de Barrameda" />
+  <meta property="og:description" content="Más de 25 años cuidando de tu vehículo con rapidez, calidad y trato cercano. Taller oficial Euro Repar Car Service en Sanlúcar de Barrameda." />
+  <meta property="og:type" content="website" />
+  <title>Talleres El Corcho | Taller Mecánico en Sanlúcar de Barrameda</title>
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -15,7 +20,7 @@
 
   <!-- ========================================================
        HEADER / NAVEGACIÓN PRINCIPAL
-       Sticky, con menú hamburguesa en móvil.
+       Sticky, glassmorphism con menú accesible en móvil.
        - URL cita online: busca "eurorepar" para actualizarla en todo el archivo
        - Teléfono principal: busca "tel:+34956360075"
   ======================================================== -->
@@ -26,13 +31,16 @@
         <!-- Logo / Nombre del taller -->
         <a href="#inicio" class="nav-logo" aria-label="Talleres El Corcho — Ir al inicio">
           <span class="nav-logo-icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
               <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
             </svg>
           </span>
-          <span class="nav-logo-text">Talleres El Corcho</span>
+          <div class="nav-logo-brand">
+            <span class="nav-logo-text">Talleres El Corcho</span>
+            <span class="nav-logo-tag">Sanlúcar de Barrameda</span>
+          </div>
           <span class="nav-logo-divider" aria-hidden="true"></span>
           <picture>
             <source media="(max-width: 639px)" srcset="logo-mobile.png" />
@@ -45,6 +53,16 @@
             />
           </picture>
         </a>
+
+        <!-- Acciones rápidas escritorio -->
+        <div class="nav-quick-actions">
+          <a href="tel:+34956360075" class="nav-phone-link" aria-label="Llamar al 956 36 00 75">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>956 36 00 75</span>
+          </a>
+        </div>
 
         <!-- Botón hamburguesa (visible solo en móvil) -->
         <button
@@ -60,22 +78,32 @@
         </button>
 
         <!-- Menú de navegación -->
-        <ul class="nav-links" id="nav-menu" role="list">
-          <li><a href="#inicio"    class="nav-link">Inicio</a></li>
-          <li><a href="#servicios" class="nav-link">Servicios</a></li>
-          <li><a href="#nosotros"  class="nav-link">Sobre nosotros</a></li>
-          <li><a href="#horarios"  class="nav-link">Horarios</a></li>
-          <li><a href="#contacto"  class="nav-link">Contacto</a></li>
-          <!-- URL de cita online: actualizar xcode si cambia -->
-          <li>
-            <a
-              href="https://es.eurorepar.site/booking?xcode=X382601"
-              class="nav-link nav-link--cta"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Solicitar cita</a>
-          </li>
-        </ul>
+        <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+          <ul class="nav-links" id="nav-menu" role="list">
+            <li><a href="#inicio"    class="nav-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#nosotros"  class="nav-link">Sobre nosotros</a></li>
+            <li><a href="#horarios"  class="nav-link">Horarios</a></li>
+            <li><a href="#contacto"  class="nav-link">Contacto</a></li>
+            <!-- URL de cita online: actualizar xcode si cambia -->
+            <li class="nav-cta-item">
+              <a
+                href="https://es.eurorepar.site/booking?xcode=X382601"
+                class="btn btn--nav-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Solicitar cita
+              </a>
+            </li>
+          </ul>
+        </div>
 
       </div>
     </nav>
@@ -91,11 +119,12 @@
     ======================================================== -->
     <section id="inicio" class="hero" aria-labelledby="hero-title">
 
-      <!-- Elementos decorativos de fondo (CSS, sin imágenes reales) -->
+      <!-- Elementos decorativos de fondo con iluminación ambiental -->
       <div class="hero-bg" aria-hidden="true">
-        <div class="hero-bg-stripe"></div>
-        <div class="hero-bg-dots"></div>
-        <div class="hero-bg-glow"></div>
+        <div class="hero-bg-glow hero-bg-glow--1"></div>
+        <div class="hero-bg-glow hero-bg-glow--2"></div>
+        <div class="hero-bg-grid"></div>
+        <div class="hero-bg-radial"></div>
       </div>
 
       <div class="container">
@@ -103,271 +132,446 @@
 
           <!-- Contenido principal del hero -->
           <div class="hero-content">
+            
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              <span>Red Oficial Euro Repar Car Service · Sanlúcar</span>
+            </div>
+
             <h1 id="hero-title" class="hero-title">
-              <span class="hero-title-line">Tu taller de confianza en</span>
-              <span class="hero-title-accent">Sanlúcar de Barrameda</span>
+              <span class="hero-title-line">Tu taller mecánico de</span>
+              <span class="hero-title-accent">confianza en Sanlúcar</span>
             </h1>
 
             <p class="hero-subtitle">
-              Más de 25 años cuidando de tu vehículo con rapidez, calidad y trato cercano.
+              Más de 25 años cuidando de tu vehículo con la máxima rapidez, calidad técnica garantizada y el trato cercano de una empresa familiar.
             </p>
 
             <div class="hero-actions">
               <!-- Botón principal: cita online -->
-              <!-- URL de cita: actualizar xcode si cambia -->
               <a
                 href="https://es.eurorepar.site/booking?xcode=X382601"
-                class="btn btn--primary"
+                class="btn btn--primary btn--lg"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="4" width="18" height="18" rx="2"/>
                   <line x1="16" y1="2" x2="16" y2="6"/>
                   <line x1="8" y1="2" x2="8" y2="6"/>
                   <line x1="3" y1="10" x2="21" y2="10"/>
                 </svg>
-                Solicitar cita
+                Solicitar cita online
               </a>
 
-              <!-- Teléfono principal: actualizar si cambia -->
-              <a href="tel:+34956360075" class="btn btn--ghost">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <!-- Teléfono principal -->
+              <a href="tel:+34956360075" class="btn btn--ghost btn--lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
                 Llamar ahora
               </a>
 
-              <!-- WhatsApp: actualizar número si cambia -->
+              <!-- WhatsApp -->
               <a
                 href="https://wa.me/34667402426"
-                class="btn btn--whatsapp"
+                class="btn btn--whatsapp btn--lg"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contactar por WhatsApp al 667 40 24 26"
               >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                 </svg>
                 WhatsApp
               </a>
             </div>
+
+            <!-- Pequeña lista de confianza bajo los botones -->
+            <div class="hero-trust-pills">
+              <span class="trust-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Todas las marcas</span>
+              <span class="trust-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Presupuesto transparente</span>
+              <span class="trust-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Garantía oficial</span>
+            </div>
+
           </div><!-- /.hero-content -->
 
-          <!-- Stats destacados -->
-          <div class="hero-stats" aria-label="Datos destacados del taller">
-            <div class="hero-stat">
-              <span class="hero-stat-number">+25</span>
-              <span class="hero-stat-label">Años de<br>experiencia</span>
-            </div>
-            <div class="hero-stat-sep" aria-hidden="true"></div>
-            <div class="hero-stat">
-              <span class="hero-stat-number">12</span>
-              <span class="hero-stat-label">Servicios<br>especializados</span>
-            </div>
-            <div class="hero-stat-sep" aria-hidden="true"></div>
-            <div class="hero-stat">
-              <span class="hero-stat-number">2ª</span>
-              <span class="hero-stat-label">Generación<br>familiar</span>
+          <!-- Tarjeta de confianza destacada en el Hero -->
+          <div class="hero-visual">
+            <div class="hero-card-featured">
+              <div class="hero-card-header">
+                <div class="hero-card-icon-main" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="hero-card-title">Garantía & Compromiso</h3>
+                  <p class="hero-card-subtitle">Tu coche en las mejores manos</p>
+                </div>
+              </div>
+
+              <div class="hero-card-features">
+                <div class="hero-feature-item">
+                  <div class="hero-feature-icon">🛡️</div>
+                  <div>
+                    <strong>Red Euro Repar Car Service</strong>
+                    <span>Cobertura y piezas de recambio de primera calidad.</span>
+                  </div>
+                </div>
+                <div class="hero-feature-item">
+                  <div class="hero-feature-icon">🔍</div>
+                  <div>
+                    <strong>Diagnóstico Profesional</strong>
+                    <span>Equipos actualizados para detectar cualquier avería.</span>
+                  </div>
+                </div>
+                <div class="hero-feature-item">
+                  <div class="hero-feature-icon">🤝</div>
+                  <div>
+                    <strong>Atención Personalizada</strong>
+                    <span>Asesoramiento sincero y soluciones adaptadas a ti.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                <a href="#contacto" class="hero-card-link">
+                  <span>Contactar con el taller</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
         </div><!-- /.hero-inner -->
+
+        <!-- Stats destacados con diseño moderno -->
+        <div class="hero-stats" aria-label="Datos destacados del taller">
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">+25</span>
+            <span class="hero-stat-label">Años de experiencia<br>en el sector</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">12</span>
+            <span class="hero-stat-label">Servicios técnicos<br>especializados</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">2ª</span>
+            <span class="hero-stat-label">Generación de taller<br>familiar</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-number">100%</span>
+            <span class="hero-stat-label">Compromiso y<br>calidad garantizada</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
 
     <!-- ========================================================
          SECCIÓN 2: SERVICIOS
-         Fuente: sample-web-convertido-actualizado.md (tabla de servicios)
-         Para añadir un servicio: duplica un bloque <article class="service-card">
+         Tarjetas modernas con selector de categorías interactivo.
     ======================================================== -->
     <section id="servicios" class="servicios section" aria-labelledby="servicios-title">
       <div class="container">
 
         <header class="section-header">
+          <span class="section-kicker">Cuidado integral de tu vehículo</span>
           <h2 id="servicios-title" class="section-title">Nuestros Servicios</h2>
-          <p class="section-subtitle">Soluciones profesionales para todo tipo de vehículos</p>
+          <p class="section-subtitle">Soluciones profesionales, rápidas y efectivas para todo tipo de vehículos y marcas</p>
         </header>
 
-        <div class="servicios-grid">
+        <!-- Filtros de categoría para agilidad del usuario -->
+        <div class="servicios-filters" role="tablist" aria-label="Filtrar servicios por categoría">
+          <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">Todos (12)</button>
+          <button class="filter-btn" data-filter="mantenimiento" role="tab" aria-selected="false">Mantenimiento</button>
+          <button class="filter-btn" data-filter="mecanica" role="tab" aria-selected="false">Mecánica & Motor</button>
+          <button class="filter-btn" data-filter="seguridad" role="tab" aria-selected="false">Seguridad & ITV</button>
+        </div>
 
-          <!-- Baterías -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="16" height="10" rx="2"/>
-                <line x1="22" y1="11" x2="22" y2="13"/>
-                <line x1="6" y1="11" x2="6" y2="13"/>
-                <line x1="10" y1="11" x2="10" y2="13"/>
-              </svg>
+        <div class="servicios-grid" id="servicios-grid">
+
+          <!-- 1. Baterías (Mantenimiento) -->
+          <article class="service-card" data-category="mantenimiento">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="16" height="10" rx="2"/>
+                  <line x1="22" y1="11" x2="22" y2="13"/>
+                  <line x1="6" y1="11" x2="6" y2="13"/>
+                  <line x1="10" y1="11" x2="10" y2="13"/>
+                </svg>
+              </div>
+              <span class="service-badge">Mantenimiento</span>
             </div>
             <h3 class="service-card-title">Baterías</h3>
-            <p class="service-card-desc">Revisión y sustitución de baterías para asegurar un arranque fiable.</p>
+            <p class="service-card-desc">Comprobación del estado de carga, diagnóstico del alternador y sustitución para asegurar un arranque óptimo e inmediato.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Baterías">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Cambio de aceite -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2c0 0-6 6-6 12a6 6 0 0 0 12 0c0-6-6-12-6-12z"/>
-                <path d="M12 12c0 0-3 3-3 5a3 3 0 0 0 6 0c0-2-3-5-3-5z" fill="currentColor" stroke="none" opacity="0.25"/>
-              </svg>
+          <!-- 2. Cambio de aceite (Mantenimiento) -->
+          <article class="service-card" data-category="mantenimiento">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2c0 0-6 6-6 12a6 6 0 0 0 12 0c0-6-6-12-6-12z"/>
+                  <path d="M12 12c0 0-3 3-3 5a3 3 0 0 0 6 0c0-2-3-5-3-5z" fill="currentColor" stroke="none" opacity="0.3"/>
+                </svg>
+              </div>
+              <span class="service-badge">Mantenimiento</span>
             </div>
             <h3 class="service-card-title">Cambio de aceite</h3>
-            <p class="service-card-desc">Mantenimiento periódico para proteger el motor y alargar su vida útil.</p>
+            <p class="service-card-desc">Sustitución de lubricante homologado y filtros según especificaciones de tu motor para alargar su vida útil y rendimiento.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Cambio de aceite">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Climatización -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="2" x2="12" y2="22"/>
-                <path d="M12 7l-3-3M12 7l3-3"/>
-                <path d="M12 17l-3 3M12 17l3 3"/>
-                <path d="M5.2 9.8L2 8M5.2 9.8l-.7-3.5"/>
-                <path d="M18.8 9.8L22 8M18.8 9.8l.7-3.5"/>
-                <path d="M5.2 14.2L2 16M5.2 14.2l-.7 3.5"/>
-                <path d="M18.8 14.2L22 16M18.8 14.2l.7 3.5"/>
-              </svg>
+          <!-- 3. Climatización (Mantenimiento) -->
+          <article class="service-card" data-category="mantenimiento">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                  <path d="M12 7l-3-3M12 7l3-3"/>
+                  <path d="M12 17l-3 3M12 17l3 3"/>
+                  <path d="M5.2 9.8L2 8M5.2 9.8l-.7-3.5"/>
+                  <path d="M18.8 9.8L22 8M18.8 9.8l.7-3.5"/>
+                  <path d="M5.2 14.2L2 16M5.2 14.2l-.7 3.5"/>
+                  <path d="M18.8 14.2L22 16M18.8 14.2l.7 3.5"/>
+                </svg>
+              </div>
+              <span class="service-badge">Confort</span>
             </div>
             <h3 class="service-card-title">Climatización</h3>
-            <p class="service-card-desc">Revisión y recarga del aire acondicionado para un habitáculo confortable.</p>
+            <p class="service-card-desc">Carga de gas refrigerante, detección de fugas y desinfección del sistema para mantener un habitáculo fresco, limpio y confortable.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Climatización">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Distribución -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41"/>
-                <line x1="12" y1="2" x2="12" y2="4"/>
-                <line x1="12" y1="20" x2="12" y2="22"/>
-                <line x1="2" y1="12" x2="4" y2="12"/>
-                <line x1="20" y1="12" x2="22" y2="12"/>
-                <circle cx="12" cy="12" r="7" stroke-dasharray="3 3"/>
-              </svg>
+          <!-- 4. Distribución (Mecánica) -->
+          <article class="service-card" data-category="mecanica">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41"/>
+                  <line x1="12" y1="2" x2="12" y2="4"/>
+                  <line x1="12" y1="20" x2="12" y2="22"/>
+                  <line x1="2" y1="12" x2="4" y2="12"/>
+                  <line x1="20" y1="12" x2="22" y2="12"/>
+                  <circle cx="12" cy="12" r="7" stroke-dasharray="3 3"/>
+                </svg>
+              </div>
+              <span class="service-badge">Mecánica</span>
             </div>
             <h3 class="service-card-title">Distribución</h3>
-            <p class="service-card-desc">Revisión y sustitución de la correa de distribución según especificaciones del fabricante.</p>
+            <p class="service-card-desc">Sustitución preventiva del kit de distribución (correa, tensores y bomba de agua) según intervalos oficiales del fabricante.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Distribución">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Escapes -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12h12"/>
-                <rect x="14" y="9" width="4" height="6" rx="1"/>
-                <path d="M18 11c1.5 0 3 .5 3 2s-1.5 2-3 2"/>
-                <path d="M18 11V9a2 2 0 0 0-2-2H9"/>
-                <path d="M16 19c0-1-1-2-1-3"/>
-                <path d="M19 17c0-1 1-2 1-3"/>
-              </svg>
+          <!-- 5. Escapes (Mecánica) -->
+          <article class="service-card" data-category="mecanica">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12h12"/>
+                  <rect x="14" y="9" width="4" height="6" rx="1"/>
+                  <path d="M18 11c1.5 0 3 .5 3 2s-1.5 2-3 2"/>
+                  <path d="M18 11V9a2 2 0 0 0-2-2H9"/>
+                  <path d="M16 19c0-1-1-2-1-3"/>
+                  <path d="M19 17c0-1 1-2 1-3"/>
+                </svg>
+              </div>
+              <span class="service-badge">Mecánica</span>
             </div>
             <h3 class="service-card-title">Escapes</h3>
-            <p class="service-card-desc">Reparación y sustitución de componentes del sistema de escape del vehículo.</p>
+            <p class="service-card-desc">Reparación de tubos de escape, catalizadores y filtros de partículas para reducir emisiones contaminantes y ruidos indeseados.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Escapes">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Frenos -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2a10 10 0 0 1 7.07 17.07"/>
-                <path d="M12 2a10 10 0 0 0-7.07 17.07"/>
-              </svg>
+          <!-- 6. Frenos (Seguridad) -->
+          <article class="service-card" data-category="seguridad">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <path d="M12 2a10 10 0 0 1 7.07 17.07"/>
+                  <path d="M12 2a10 10 0 0 0-7.07 17.07"/>
+                </svg>
+              </div>
+              <span class="service-badge">Seguridad</span>
             </div>
             <h3 class="service-card-title">Frenos</h3>
-            <p class="service-card-desc">Revisión del sistema de frenado para una conducción segura y de confianza.</p>
+            <p class="service-card-desc">Inspección integral de pastillas, discos, zapatas y líquido de frenos para asegurar una frenada firme, equilibrada y segura.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Frenos">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Mecánica -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-              </svg>
+          <!-- 7. Mecánica General (Mecánica) -->
+          <article class="service-card" data-category="mecanica">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+              </div>
+              <span class="service-badge">Mecánica</span>
             </div>
-            <h3 class="service-card-title">Mecánica</h3>
-            <p class="service-card-desc">Diagnóstico y reparación de averías mecánicas en todo tipo de vehículos.</p>
+            <h3 class="service-card-title">Mecánica general</h3>
+            <p class="service-card-desc">Diagnóstico avanzado y reparación de averías en motor, caja de cambios, embragues, inyección y sistemas electrónicos auxiliares.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Mecánica">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Neumáticos -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <circle cx="12" cy="12" r="4"/>
-                <line x1="12" y1="2" x2="12" y2="8"/>
-                <line x1="12" y1="16" x2="12" y2="22"/>
-                <line x1="2" y1="12" x2="8" y2="12"/>
-                <line x1="16" y1="12" x2="22" y2="12"/>
-              </svg>
+          <!-- 8. Neumáticos (Seguridad) -->
+          <article class="service-card" data-category="seguridad">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <line x1="12" y1="2" x2="12" y2="8"/>
+                  <line x1="12" y1="16" x2="12" y2="22"/>
+                  <line x1="2" y1="12" x2="8" y2="12"/>
+                  <line x1="16" y1="12" x2="22" y2="12"/>
+                </svg>
+              </div>
+              <span class="service-badge">Seguridad</span>
             </div>
             <h3 class="service-card-title">Neumáticos</h3>
-            <p class="service-card-desc">Montaje, equilibrado y venta de neumáticos para todos los vehículos.</p>
+            <p class="service-card-desc">Montaje, equilibrado de ruedas, alineación y venta de las mejores marcas para garantizar agarre y ahorro de combustible.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Neumáticos">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Pre-ITV -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11l3 3L22 4"/>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-              </svg>
+          <!-- 9. Pre-ITV (Seguridad) -->
+          <article class="service-card" data-category="seguridad">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </div>
+              <span class="service-badge">Homologación</span>
             </div>
-            <h3 class="service-card-title">Pre-ITV</h3>
-            <p class="service-card-desc">Revisión previa a la ITV para evitar suspensos y garantizar la homologación del vehículo.</p>
+            <h3 class="service-card-title">Revisión Pre-ITV</h3>
+            <p class="service-card-desc">Chequeo riguroso de todos los puntos de inspección técnica oficial para garantizar que tu coche supere la ITV a la primera.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Pre-ITV">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Revisión -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
+          <!-- 10. Revisión Oficial (Mantenimiento) -->
+          <article class="service-card" data-category="mantenimiento">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"/>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+              </div>
+              <span class="service-badge">Mantenimiento</span>
             </div>
-            <h3 class="service-card-title">Revisión</h3>
-            <p class="service-card-desc">Revisión periódica integral para mantener tu vehículo en perfecto estado.</p>
+            <h3 class="service-card-title">Revisión periódica</h3>
+            <p class="service-card-desc">Mantenimiento integral con sellado del libro de revisiones sin perder la garantía oficial de tu fabricante.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Revisión">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Suspensión -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="2" x2="12" y2="5"/>
-                <path d="M9 5h6"/>
-                <path d="M9 5c0 2 6 2 6 4s-6 2-6 4 6 2 6 4"/>
-                <path d="M9 17h6"/>
-                <line x1="12" y1="17" x2="12" y2="22"/>
-              </svg>
+          <!-- 11. Suspensión (Mecánica) -->
+          <article class="service-card" data-category="mecanica">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="2" x2="12" y2="5"/>
+                  <path d="M9 5h6"/>
+                  <path d="M9 5c0 2 6 2 6 4s-6 2-6 4 6 2 6 4"/>
+                  <path d="M9 17h6"/>
+                  <line x1="12" y1="17" x2="12" y2="22"/>
+                </svg>
+              </div>
+              <span class="service-badge">Seguridad</span>
             </div>
-            <h3 class="service-card-title">Suspensión</h3>
-            <p class="service-card-desc">Diagnóstico y reparación de la suspensión para una conducción cómoda y segura.</p>
+            <h3 class="service-card-title">Amortiguación</h3>
+            <p class="service-card-desc">Diagnóstico y sustitución de amortiguadores, copelas y silentblocks para una conducción estable, confortable y segura.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Suspensión">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
-          <!-- Visibilidad -->
-          <article class="service-card">
-            <div class="service-card-icon" aria-hidden="true">
-              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                <circle cx="12" cy="12" r="3"/>
-              </svg>
+          <!-- 12. Visibilidad (Seguridad) -->
+          <article class="service-card" data-category="seguridad">
+            <div class="service-card-top">
+              <div class="service-card-icon" aria-hidden="true">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <span class="service-badge">Seguridad</span>
             </div>
-            <h3 class="service-card-title">Visibilidad</h3>
-            <p class="service-card-desc">Revisión de luces, limpiaparabrisas y todos los elementos de visibilidad del vehículo.</p>
+            <h3 class="service-card-title">Visibilidad & Luces</h3>
+            <p class="service-card-desc">Reglaje de faros, sustitución de lámparas, pulido de ópticas y cambio de escobillas limpiaparabrisas para máxima visibilidad.</p>
+            <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="service-card-link" aria-label="Pedir cita para Visibilidad">
+              <span>Pedir cita</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
           </article>
 
         </div><!-- /.servicios-grid -->
+
+        <!-- Banner de llamada a la acción en servicios -->
+        <div class="servicios-cta-banner">
+          <div class="cta-banner-content">
+            <h3>¿No encuentras la avería o el servicio que necesitas?</h3>
+            <p>Llámanos o escríbenos por WhatsApp y te asesoraremos sin ningún tipo de compromiso.</p>
+          </div>
+          <div class="cta-banner-actions">
+            <a href="tel:+34956360075" class="btn btn--primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              956 36 00 75
+            </a>
+            <a href="https://wa.me/34667402426" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+              WhatsApp directo
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
 
     <!-- ========================================================
          SECCIÓN 3: SOBRE NOSOTROS
-         Fuente: sample-web-convertido-actualizado.md (sección "Sobre Nosotros")
+         Historia familiar + valores con insignias visuales.
     ======================================================== -->
     <section id="nosotros" class="nosotros section section--dark" aria-labelledby="nosotros-title">
       <div class="container">
@@ -375,66 +579,82 @@
 
           <!-- Texto descriptivo -->
           <div class="nosotros-text">
+            <span class="section-kicker section-kicker--accent">Nuestra Historia & Compromiso</span>
             <h2 id="nosotros-title" class="section-title section-title--light">Sobre Nosotros</h2>
+            
+            <p class="nosotros-lead">
+              <strong>Talleres El Corcho</strong> es una empresa familiar en Sanlúcar de Barrameda, actualmente gestionada con orgullo por su <strong>segunda generación</strong>.
+            </p>
+            
             <p class="nosotros-desc">
-              Talleres El Corcho es una empresa familiar, actualmente gestionada por la segunda generación.
-              Nuestra principal actividad es la reparación y mantenimiento de todo tipo de vehículos.
-              En el centro de nuestra actividad siempre están nuestros clientes: buscamos la mejor
-              solución para cada uno de ellos, de forma rápida, eficaz y con la máxima calidad.
+              Nuestra principal actividad es la reparación y el mantenimiento multimarca de todo tipo de vehículos. En el centro de nuestra labor siempre están las personas: escuchamos a cada cliente y buscamos la mejor solución técnica de forma rápida, eficaz y con la máxima transparencia.
             </p>
             <p class="nosotros-desc">
-              Cada cliente necesita y requiere una solución diferente; trabajamos cada día para
-              conseguir que esa solución sea rápida, efectiva y de calidad. Porque en Talleres El Corcho,
-              tu vehículo está en las mejores manos.
+              Pertenecer a la red <strong>Euro Repar Car Service</strong> nos permite combinar el trato cercano, honesto y de confianza de toda la vida con la última tecnología y garantía oficial en cada recambio.
             </p>
 
-            <!-- Valores del taller -->
-            <ul class="valores-list" aria-label="Nuestros valores">
-              <li class="valor-item">
-                <span class="valor-check" aria-hidden="true">✓</span>Confianza
-              </li>
-              <li class="valor-item">
-                <span class="valor-check" aria-hidden="true">✓</span>Rapidez
-              </li>
-              <li class="valor-item">
-                <span class="valor-check" aria-hidden="true">✓</span>Calidad
-              </li>
-              <li class="valor-item">
-                <span class="valor-check" aria-hidden="true">✓</span>Cercanía
-              </li>
-              <li class="valor-item">
-                <span class="valor-check" aria-hidden="true">✓</span>Profesionalidad
-              </li>
-            </ul>
+            <!-- Valores del taller con diseño visual de insignias -->
+            <div class="valores-container">
+              <span class="valores-title">Los pilares que nos definen:</span>
+              <ul class="valores-list" aria-label="Nuestros valores">
+                <li class="valor-item">
+                  <span class="valor-icon" aria-hidden="true">🤝</span>
+                  <span class="valor-name">Confianza</span>
+                </li>
+                <li class="valor-item">
+                  <span class="valor-icon" aria-hidden="true">⚡</span>
+                  <span class="valor-name">Rapidez</span>
+                </li>
+                <li class="valor-item">
+                  <span class="valor-icon" aria-hidden="true">⭐</span>
+                  <span class="valor-name">Calidad</span>
+                </li>
+                <li class="valor-item">
+                  <span class="valor-icon" aria-hidden="true">👥</span>
+                  <span class="valor-name">Cercanía</span>
+                </li>
+                <li class="valor-item">
+                  <span class="valor-icon" aria-hidden="true">🔧</span>
+                  <span class="valor-name">Profesionalidad</span>
+                </li>
+              </ul>
+            </div>
           </div><!-- /.nosotros-text -->
 
           <!-- Área de tarjetas destacadas -->
           <div class="nosotros-cards">
 
             <div class="nos-card nos-card--main" aria-label="Más de 25 años de experiencia">
+              <div class="nos-card-badge">Trayectoria</div>
               <div class="nos-card-number">+25</div>
-              <div class="nos-card-label">años de experiencia</div>
+              <div class="nos-card-label">Años de experiencia al servicio de conductores de Sanlúcar y comarca</div>
             </div>
 
             <div class="nos-card nos-card--secondary">
               <div class="nos-card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                   <circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </div>
-              <div class="nos-card-label">Empresa familiar</div>
+              <div class="nos-card-info">
+                <strong>Segunda Generación</strong>
+                <p>Empresa familiar consolidada y en constante evolución técnica.</p>
+              </div>
             </div>
 
             <div class="nos-card nos-card--secondary">
               <div class="nos-card-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"/>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                 </svg>
               </div>
-              <div class="nos-card-label">Euro Repar Car Service</div>
+              <div class="nos-card-info">
+                <strong>Red Euro Repar Car Service</strong>
+                <p>Garantía de calidad oficial y recambios certificados para tu coche.</p>
+              </div>
             </div>
 
           </div><!-- /.nosotros-cards -->
@@ -446,44 +666,54 @@
 
     <!-- ========================================================
          SECCIÓN 4: HORARIOS
-         - Horario habitual:  L-V  09:00-13:30 / 15:30-19:00
+         - Horario habitual:  L-V  08:00-13:30 / 15:30-18:00
          - Horario verano:    L-V  08:00-15:00  (15 jun - 15 sep)
-         - La detección automática de verano activo se gestiona en script.js
+         - Widget en tiempo real "Abierto / Cerrado ahora"
     ======================================================== -->
     <section id="horarios" class="horarios section" aria-labelledby="horarios-title">
       <div class="container">
 
         <header class="section-header">
-          <h2 id="horarios-title" class="section-title">Horarios</h2>
-          <p class="section-subtitle">Estamos a tu disposición de lunes a viernes</p>
+          <span class="section-kicker">Disponibilidad</span>
+          <h2 id="horarios-title" class="section-title">Horarios de Atención</h2>
+          <p class="section-subtitle">Estamos a tu disposición de lunes a viernes en nuestras instalaciones</p>
         </header>
+
+        <!-- Widget de estado en tiempo real (Abierto / Cerrado ahora) -->
+        <div class="live-status-container">
+          <div id="status-widget" class="live-status-widget" aria-live="polite">
+            <span class="status-pulse" id="status-pulse" aria-hidden="true"></span>
+            <div class="status-content">
+              <span class="status-title" id="status-title">Comprobando horario del taller...</span>
+              <span class="status-desc" id="status-desc">Cargando horario actual</span>
+            </div>
+          </div>
+        </div>
 
         <!-- Banner "Horario de verano activo" — JS lo muestra si procede -->
         <div id="verano-activo" class="verano-banner" hidden aria-live="polite">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-          ¡Horario de verano!
+          <div class="verano-banner-icon" aria-hidden="true">☀️</div>
+          <div class="verano-banner-text">
+            <strong>¡Horario especial de verano activo!</strong>
+            <span>Atención continua de 08:00 a 15:00 (15 de junio al 15 de septiembre).</span>
+          </div>
         </div>
 
         <div class="horarios-grid">
 
           <!-- Tarjeta: Horario habitual -->
-          <div class="horario-card">
+          <div class="horario-card" id="card-horario-habitual">
             <div class="horario-card-header">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-              <h3 class="horario-card-title">Horario habitual</h3>
+              <div class="horario-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="horario-header-text">
+                <h3 class="horario-card-title">Horario Habitual</h3>
+                <span class="horario-sub">Resto del año (Jornada partida)</span>
+              </div>
             </div>
             <table class="horario-table" aria-label="Horario habitual del taller">
               <thead>
@@ -494,52 +724,55 @@
                 </tr>
               </thead>
               <tbody>
-                <tr data-day="1"><td>Lunes</td>    <td>08:00–13:30</td><td>15:30–18:00</td></tr>
-                <tr data-day="2"><td>Martes</td>   <td>08:00–13:30</td><td>15:30–18:00</td></tr>
-                <tr data-day="3"><td>Miércoles</td><td>08:00–13:30</td><td>15:30–18:00</td></tr>
-                <tr data-day="4"><td>Jueves</td>   <td>08:00–13:30</td><td>15:30–18:00</td></tr>
-                <tr data-day="5"><td>Viernes</td>  <td>08:00–13:30</td><td>15:30–18:00</td></tr>
-                <tr data-day="6" class="horario-cerrado"><td>Sábado</td>  <td colspan="2">Cerrado</td></tr>
-                <tr data-day="0" class="horario-cerrado"><td>Domingo</td> <td colspan="2">Cerrado</td></tr>
+                <tr data-day="1"><td><span class="day-chip">Lunes</span></td>    <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
+                <tr data-day="2"><td><span class="day-chip">Martes</span></td>   <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
+                <tr data-day="3"><td><span class="day-chip">Miércoles</span></td><td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
+                <tr data-day="4"><td><span class="day-chip">Jueves</span></td>   <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
+                <tr data-day="5"><td><span class="day-chip">Viernes</span></td>  <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
+                <tr data-day="6" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Sábado</span></td>  <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
+                <tr data-day="0" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Domingo</span></td> <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
               </tbody>
             </table>
           </div><!-- /.horario-card -->
 
           <!-- Tarjeta: Horario de verano -->
-          <div class="horario-card horario-card--verano">
+          <div class="horario-card horario-card--verano" id="card-horario-verano">
             <div class="horario-card-header">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="5"/>
-                <line x1="12" y1="1" x2="12" y2="3"/>
-                <line x1="12" y1="21" x2="12" y2="23"/>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                <line x1="1" y1="12" x2="3" y2="12"/>
-                <line x1="21" y1="12" x2="23" y2="12"/>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-              </svg>
-              <h3 class="horario-card-title">Horario de verano</h3>
-              <span class="horario-badge">15 Jun — 15 Sep</span>
+              <div class="horario-icon horario-icon--sun" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              </div>
+              <div class="horario-header-text">
+                <h3 class="horario-card-title">Horario de Verano</h3>
+                <span class="horario-badge">15 Jun — 15 Sep</span>
+              </div>
             </div>
             <table class="horario-table" aria-label="Horario de verano del taller">
               <thead>
                 <tr>
                   <th scope="col">Día</th>
-                  <th scope="col" colspan="2">Horario continuo</th>
+                  <th scope="col" colspan="2">Horario Continuo</th>
                 </tr>
               </thead>
               <tbody>
-                <tr data-day="1"><td>Lunes</td>    <td colspan="2">08:00–15:00</td></tr>
-                <tr data-day="2"><td>Martes</td>   <td colspan="2">08:00–15:00</td></tr>
-                <tr data-day="3"><td>Miércoles</td><td colspan="2">08:00–15:00</td></tr>
-                <tr data-day="4"><td>Jueves</td>   <td colspan="2">08:00–15:00</td></tr>
-                <tr data-day="5"><td>Viernes</td>  <td colspan="2">08:00–15:00</td></tr>
-                <tr data-day="6" class="horario-cerrado"><td>Sábado</td>  <td colspan="2">Cerrado</td></tr>
-                <tr data-day="0" class="horario-cerrado"><td>Domingo</td> <td colspan="2">Cerrado</td></tr>
+                <tr data-day="1"><td><span class="day-chip">Lunes</span></td>    <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
+                <tr data-day="2"><td><span class="day-chip">Martes</span></td>   <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
+                <tr data-day="3"><td><span class="day-chip">Miércoles</span></td><td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
+                <tr data-day="4"><td><span class="day-chip">Jueves</span></td>   <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
+                <tr data-day="5"><td><span class="day-chip">Viernes</span></td>  <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
+                <tr data-day="6" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Sábado</span></td>  <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
+                <tr data-day="0" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Domingo</span></td> <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
               </tbody>
             </table>
-
           </div><!-- /.horario-card--verano -->
 
         </div><!-- /.horarios-grid -->
@@ -552,17 +785,16 @@
          - Email: tallereselcorcho@gmail.com
          - Teléfono: 956 36 00 75  →  tel:+34956360075
          - Móvil/WhatsApp: 667 40 24 26  →  https://wa.me/34667402426
-         - Fax: 856926049
+         - Fax: 856 92 60 49
          - URL cita: https://es.eurorepar.site/booking?xcode=X382601
-         - iframe de Google Maps: extraído de sample-web-convertido-actualizado.md
-         IMPORTANTE: no modificar la URL del iframe sin verificar con el cliente
     ======================================================== -->
     <section id="contacto" class="contacto section section--dark" aria-labelledby="contacto-title">
       <div class="container">
 
         <header class="section-header">
-          <h2 id="contacto-title" class="section-title section-title--light">Contacto</h2>
-          <p class="section-subtitle section-subtitle--light">¡Contáctenos sin compromiso!</p>
+          <span class="section-kicker section-kicker--accent">Estamos cerca de ti</span>
+          <h2 id="contacto-title" class="section-title section-title--light">Contacto & Ubicación</h2>
+          <p class="section-subtitle section-subtitle--light">¡Ponte en contacto con nosotros sin compromiso o solicita tu cita previa online!</p>
         </header>
 
         <div class="contacto-layout">
@@ -570,151 +802,149 @@
           <!-- Datos de contacto -->
           <div class="contacto-info">
 
-            <ul class="contacto-datos" aria-label="Datos de contacto">
+            <div class="contacto-cards-grid">
 
-              <!-- Teléfono principal: actualizar href y texto si cambia -->
-              <li class="contacto-dato">
-                <span class="contacto-dato-icon" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Teléfono principal -->
+              <a href="tel:+34956360075" class="contacto-card" aria-label="Llamar al teléfono fijo 956 36 00 75">
+                <div class="contacto-card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                </span>
-                <div class="contacto-dato-body">
-                  <span class="contacto-dato-label">Teléfono</span>
-                  <a href="tel:+34956360075" class="contacto-dato-value">956 36 00 75</a>
                 </div>
-              </li>
+                <div class="contacto-card-body">
+                  <span class="contacto-card-label">Teléfono fijo</span>
+                  <span class="contacto-card-val">956 36 00 75</span>
+                  <span class="contacto-card-action">Llamar directamente →</span>
+                </div>
+              </a>
 
-              <!-- Móvil / WhatsApp: actualizar href y texto si cambia -->
-              <li class="contacto-dato">
-                <span class="contacto-dato-icon contacto-dato-icon--wa" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+              <!-- Móvil / WhatsApp -->
+              <a href="https://wa.me/34667402426" class="contacto-card contacto-card--wa" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp al 667 40 24 26">
+                <div class="contacto-card-icon contacto-card-icon--wa" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                   </svg>
-                </span>
-                <div class="contacto-dato-body">
-                  <span class="contacto-dato-label">Móvil / WhatsApp</span>
-                  <a href="https://wa.me/34667402426" class="contacto-dato-value" target="_blank" rel="noopener noreferrer">667 40 24 26</a>
                 </div>
-              </li>
-
-              <!-- Email: actualizar href y texto si cambia -->
-              <li class="contacto-dato">
-                <span class="contacto-dato-icon" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                </span>
-                <div class="contacto-dato-body">
-                  <span class="contacto-dato-label">Email</span>
-                  <a href="mailto:tallereselcorcho@gmail.com" class="contacto-dato-value">tallereselcorcho@gmail.com</a>
+                <div class="contacto-card-body">
+                  <span class="contacto-card-label">WhatsApp / Móvil</span>
+                  <span class="contacto-card-val">667 40 24 26</span>
+                  <span class="contacto-card-action">Enviar WhatsApp →</span>
                 </div>
-              </li>
-
-              <!-- Fax: actualizar si cambia -->
-              <li class="contacto-dato">
-                <span class="contacto-dato-icon" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 17 13 17 11 20 9 17 2 17 2 3 22 3 22 17"/>
-                    <line x1="7" y1="10" x2="7" y2="10"/>
-                    <line x1="11" y1="10" x2="11" y2="10"/>
-                    <line x1="15" y1="10" x2="15" y2="10"/>
-                  </svg>
-                </span>
-                <div class="contacto-dato-body">
-                  <span class="contacto-dato-label">Fax</span>
-                  <span class="contacto-dato-value">856 92 60 49</span>
-                </div>
-              </li>
-
-              <!-- Ubicación -->
-              <li class="contacto-dato">
-                <span class="contacto-dato-icon" aria-hidden="true">
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                  </svg>
-                </span>
-                <div class="contacto-dato-body">
-                  <span class="contacto-dato-label">Ubicación</span>
-                  <span class="contacto-dato-value">Sanlúcar de Barrameda, Cádiz</span>
-                </div>
-              </li>
-
-            </ul><!-- /.contacto-datos -->
-
-            <!-- Botones de acción -->
-            <div class="contacto-actions">
-              <!-- Teléfono principal -->
-              <a href="tel:+34956360075" class="btn btn--primary">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                Llamar ahora
               </a>
 
               <!-- Email -->
-              <a href="mailto:tallereselcorcho@gmail.com" class="btn btn--ghost">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                Enviar email
+              <a href="mailto:tallereselcorcho@gmail.com" class="contacto-card" aria-label="Enviar correo a tallereselcorcho@gmail.com">
+                <div class="contacto-card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="contacto-card-body">
+                  <span class="contacto-card-label">Correo Electrónico</span>
+                  <span class="contacto-card-val contacto-card-val--sm">tallereselcorcho@gmail.com</span>
+                  <span class="contacto-card-action">Enviar correo →</span>
+                </div>
               </a>
 
-              <!-- WhatsApp -->
-              <a href="https://wa.me/34667402426" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-                </svg>
-                WhatsApp
-              </a>
+              <!-- Fax & Ubicación resumen -->
+              <div class="contacto-card contacto-card--static">
+                <div class="contacto-card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="contacto-card-body">
+                  <span class="contacto-card-label">Ubicación & Fax</span>
+                  <span class="contacto-card-val">Sanlúcar de Barrameda</span>
+                  <span class="contacto-card-sub">Fax: 856 92 60 49</span>
+                </div>
+              </div>
 
-              <!-- Solicitar cita online — URL real: actualizar xcode si cambia -->
+            </div><!-- /.contacto-cards-grid -->
+
+            <!-- Botones de acción principales -->
+            <div class="contacto-actions">
               <a
                 href="https://es.eurorepar.site/booking?xcode=X382601"
-                class="btn btn--cita"
+                class="btn btn--primary btn--block"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-title="Cita online"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="4" width="18" height="18" rx="2"/>
                   <line x1="16" y1="2" x2="16" y2="6"/>
                   <line x1="8" y1="2" x2="8" y2="6"/>
                   <line x1="3" y1="10" x2="21" y2="10"/>
                 </svg>
-                Solicitar una cita
+                Solicitar cita online oficial
               </a>
-            </div><!-- /.contacto-actions -->
+            </div>
 
           </div><!-- /.contacto-info -->
 
           <!-- Mapa de Google Maps -->
-          <!-- iframe extraído de sample-web-convertido-actualizado.md — NO modificar la URL sin verificar -->
-          <div class="contacto-mapa">
-            <div class="map-responsive">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.3128773937483!2d-6.346938683872299!3d36.76306097995634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dde40165eac3b%3A0x4807934d1dcd0b76!2sTalleres%20El%20Corcho%2C%20C.B.%20EURO%20REPAR%20CAR%20SERVICE!5e0!3m2!1ses!2ses!4v1598527780466!5m2!1ses!2ses"
-                width="100%"
-                height="100%"
-                frameborder="0"
-                style="border: 0;"
-                allowfullscreen
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Ubicación de Talleres El Corcho en Google Maps"
-                aria-label="Mapa de Google Maps mostrando la ubicación de Talleres El Corcho en Sanlúcar de Barrameda"
-              ></iframe>
+          <div class="contacto-mapa-wrapper">
+            <div class="map-card">
+              <div class="map-card-header">
+                <div class="map-card-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Sanlúcar de Barrameda, Cádiz</span>
+                </div>
+                <a
+                  href="https://maps.google.com/?cid=5190209425425664886"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="map-direct-btn"
+                >
+                  Abrir en Google Maps
+                </a>
+              </div>
+
+              <div class="map-responsive">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.3128773937483!2d-6.346938683872299!3d36.76306097995634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0dde40165eac3b%3A0x4807934d1dcd0b76!2sTalleres%20El%20Corcho%2C%20C.B.%20EURO%20REPAR%20CAR%20SERVICE!5e0!3m2!1ses!2ses!4v1598527780466!5m2!1ses!2ses"
+                  width="100%"
+                  height="100%"
+                  frameborder="0"
+                  style="border: 0;"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Talleres El Corcho en Google Maps"
+                  aria-label="Mapa de Google Maps mostrando la ubicación de Talleres El Corcho en Sanlúcar de Barrameda"
+                ></iframe>
+              </div>
             </div>
-          </div><!-- /.contacto-mapa -->
+          </div><!-- /.contacto-mapa-wrapper -->
 
         </div><!-- /.contacto-layout -->
       </div>
     </section>
 
   </main>
+
+
+  <!-- ========================================================
+       BOTÓN FLOTANTE DE CONTACTO RÁPIDO (FAB)
+       Accesible, discreto y de alta conversión.
+  ======================================================== -->
+  <div class="fab-container" id="fab-container" aria-label="Contacto flotante rápido">
+    <a
+      href="https://wa.me/34667402426"
+      class="fab-btn fab-btn--whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Escríbenos por WhatsApp"
+      title="Contactar por WhatsApp"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      </svg>
+      <span class="fab-tooltip">¿En qué podemos ayudarte?</span>
+    </a>
+  </div>
 
 
   <!-- ========================================================
@@ -731,50 +961,57 @@
 
         <!-- Marca / Descripción -->
         <div class="footer-brand">
-          <span class="footer-logo">
-            Talleres El Corcho
-          </span>
+          <div class="footer-brand-title">Talleres El Corcho</div>
+          <p class="footer-tagline">Taller Mecánico en Sanlúcar de Barrameda</p>
           <img
             src="logo-footer.png"
             alt="Euro Repar Car Service"
             class="footer-logo-img"
-            height="100"
+            height="90"
             loading="lazy"
           />
           <p class="footer-desc">
-            Taller mecánico familiar en Sanlúcar de Barrameda con más de 25 años de experiencia.
-            Tu vehículo, en las mejores manos.
+            Empresa familiar de segunda generación con más de 25 años de experiencia cuidando de tu vehículo con la máxima calidad y garantía técnica.
           </p>
         </div>
 
         <!-- Navegación del footer -->
         <nav class="footer-nav" aria-label="Navegación pie de página">
-          <h4 class="footer-col-title">Navegación</h4>
+          <h4 class="footer-col-title">Secciones</h4>
           <ul role="list">
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#nosotros">Sobre nosotros</a></li>
             <li><a href="#horarios">Horarios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#contacto">Contacto & Ubicación</a></li>
           </ul>
         </nav>
 
         <!-- Contacto rápido -->
         <div class="footer-contact">
-          <h4 class="footer-col-title">Contacto rápido</h4>
+          <h4 class="footer-col-title">Contacto Rápido</h4>
           <ul role="list" class="footer-contact-list">
             <li>
-              <!-- Teléfono principal: actualizar aquí y en secciones hero y contacto -->
-              <a href="tel:+34956360075">956 36 00 75</a>
+              <a href="tel:+34956360075" class="footer-contact-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-1.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>956 36 00 75</span>
+              </a>
             </li>
             <li>
-              <!-- Email: actualizar aquí y en la sección contacto -->
-              <a href="mailto:tallereselcorcho@gmail.com">tallereselcorcho@gmail.com</a>
+              <a href="https://wa.me/34667402426" class="footer-contact-link" target="_blank" rel="noopener noreferrer">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                <span>667 40 24 26 (WhatsApp)</span>
+              </a>
             </li>
             <li>
-              <!-- URL cita: actualizar xcode aquí y en todas las instancias -->
-              <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer">
-                Solicitar cita online
+              <a href="mailto:tallereselcorcho@gmail.com" class="footer-contact-link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>tallereselcorcho@gmail.com</span>
+              </a>
+            </li>
+            <li class="footer-cta-box">
+              <a href="https://es.eurorepar.site/booking?xcode=X382601" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">
+                Pedir cita previa online
               </a>
             </li>
           </ul>
@@ -784,17 +1021,15 @@
 
       <div class="footer-bottom">
         <p class="footer-copy">
-          <!-- Año actualizado dinámicamente por script.js — fallback: 2026 -->
-          &copy; <span id="footer-year">2026</span> Talleres El Corcho · Sanlúcar de Barrameda, Cádiz
+          &copy; <span id="footer-year">2026</span> <strong>Talleres El Corcho</strong> · Sanlúcar de Barrameda (Cádiz). Todos los derechos reservados.
         </p>
-        <p class="footer-tagline">Taller mecánico familiar con más de 25 años de experiencia</p>
+        <p class="footer-subcopy">Red Oficial Euro Repar Car Service · Más de 25 años de experiencia</p>
       </div>
 
     </div>
   </footer>
 
   <script src="script.js"></script>
-  <script data-goatcounter="https://tallereselcorcho.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://tallereselcorcho.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

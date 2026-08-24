@@ -33,19 +33,15 @@ Abre `index.html` directamente en cualquier navegador moderno. No requiere servi
 
 Los servicios se encuentran en `index.html`, dentro de `<section id="servicios">`.
 
-Cada servicio es un `<article class="service-card">` con tres partes:
+Cada servicio es un `<article class="service-card" data-category="...">` con:
+- `data-category`: categoría para el filtrador interactivo (`mantenimiento`, `mecanica`, `seguridad`).
+- Contenedor de icono SVG.
+- Insignia de categoría (`<span class="service-badge">`).
+- Título (`<h3 class="service-card-title">`).
+- Descripción (`<p class="service-card-desc">`).
+- Enlace directo a cita (`<a class="service-card-link">`).
 
-```html
-<article class="service-card">
-  <div class="service-card-icon" aria-hidden="true">
-    <!-- SVG inline del icono -->
-  </div>
-  <h3 class="service-card-title">Nombre del servicio</h3>
-  <p class="service-card-desc">Descripción breve del servicio.</p>
-</article>
-```
-
-- **Añadir servicio:** duplica un bloque `<article class="service-card">` y edita icono, título y descripción.
+- **Añadir servicio:** duplica un bloque `<article class="service-card">` y edita categoría, icono, título y descripción.
 - **Eliminar servicio:** borra el bloque `<article class="service-card">` completo.
 - **Cambiar descripción:** edita el texto del `<p class="service-card-desc">`.
 
