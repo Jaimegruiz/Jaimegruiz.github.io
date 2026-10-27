@@ -11,12 +11,16 @@
   <meta property="og:type" content="website" />
   <title>Talleres El Corcho | Taller Mecánico en Sanlúcar de Barrameda</title>
 
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- Acceso directo para lectores de pantalla -->
   <a class="skip-to-content" href="#main-content">Saltar al contenido principal</a>
+
+  <!-- Barra de progreso de lectura (decorativa) -->
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- ========================================================
        HEADER / NAVEGACIÓN PRINCIPAL
@@ -126,6 +130,7 @@
         <div class="hero-bg-glow hero-bg-glow--2"></div>
         <div class="hero-bg-grid"></div>
         <div class="hero-bg-radial"></div>
+        <div class="hero-gears" id="hero-gears"></div>
       </div>
 
       <div class="container">
@@ -686,92 +691,42 @@
           </div>
         </div>
 
-        <!-- Banner "Horario de verano activo" — JS lo muestra si procede -->
-        <div id="verano-activo" class="verano-banner" hidden aria-live="polite">
-          <div class="verano-banner-icon" aria-hidden="true">☀️</div>
-          <div class="verano-banner-text">
-            <strong>Horario de verano</strong>
-            <span>Del 15 de junio al 15 de septiembre abrimos de 08:00 a 15:00 h (de lunes a viernes).</span>
+        <!-- Horario vigente: JS muestra solo el que corresponde a la fecha (verano 15 jun - 15 sep) -->
+        <div class="horario-card" id="horario-card">
+          <div class="horario-card-header">
+            <div class="horario-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="horario-header-text">
+              <h3 class="horario-card-title" id="horario-title">Horario habitual</h3>
+              <span class="horario-sub" id="horario-sub">Lunes a viernes · Jornada partida</span>
+            </div>
+            <span class="horario-badge" id="horario-badge" hidden>15 Jun — 15 Sep</span>
           </div>
-        </div>
 
-        <div class="horarios-grid">
+          <div class="horario-slots" id="slots-habitual">
+            <div class="slot"><span class="slot-label">Mañana</span><strong class="slot-time">08:00 – 13:30</strong></div>
+            <div class="slot"><span class="slot-label">Tarde</span><strong class="slot-time">15:30 – 18:00</strong></div>
+          </div>
+          <div class="horario-slots horario-slots--single" id="slots-verano" hidden>
+            <div class="slot"><span class="slot-label">Jornada continua</span><strong class="slot-time">08:00 – 15:00</strong></div>
+          </div>
 
-          <!-- Tarjeta: Horario habitual -->
-          <div class="horario-card" id="card-horario-habitual">
-            <div class="horario-card-header">
-              <div class="horario-icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-              </div>
-              <div class="horario-header-text">
-                <h3 class="horario-card-title">Horario Habitual</h3>
-                <span class="horario-sub">Resto del año (Jornada partida)</span>
-              </div>
-            </div>
-            <table class="horario-table" aria-label="Horario habitual del taller">
-              <thead>
-                <tr>
-                  <th scope="col">Día</th>
-                  <th scope="col">Mañana</th>
-                  <th scope="col">Tarde</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr data-day="1"><td><span class="day-chip">Lunes</span></td>    <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
-                <tr data-day="2"><td><span class="day-chip">Martes</span></td>   <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
-                <tr data-day="3"><td><span class="day-chip">Miércoles</span></td><td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
-                <tr data-day="4"><td><span class="day-chip">Jueves</span></td>   <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
-                <tr data-day="5"><td><span class="day-chip">Viernes</span></td>  <td><span class="time-badge">08:00 – 13:30</span></td><td><span class="time-badge">15:30 – 18:00</span></td></tr>
-                <tr data-day="6" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Sábado</span></td>  <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
-                <tr data-day="0" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Domingo</span></td> <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
-              </tbody>
-            </table>
-          </div><!-- /.horario-card -->
+          <ol class="week-strip" aria-label="Días de apertura">
+            <li class="week-day" data-day="1" aria-label="Lunes, abierto">L<small>Abierto</small></li>
+            <li class="week-day" data-day="2" aria-label="Martes, abierto">M<small>Abierto</small></li>
+            <li class="week-day" data-day="3" aria-label="Miércoles, abierto">X<small>Abierto</small></li>
+            <li class="week-day" data-day="4" aria-label="Jueves, abierto">J<small>Abierto</small></li>
+            <li class="week-day" data-day="5" aria-label="Viernes, abierto">V<small>Abierto</small></li>
+            <li class="week-day is-closed" data-day="6" aria-label="Sábado, cerrado">S<small>Cerrado</small></li>
+            <li class="week-day is-closed" data-day="0" aria-label="Domingo, cerrado">D<small>Cerrado</small></li>
+          </ol>
 
-          <!-- Tarjeta: Horario de verano -->
-          <div class="horario-card horario-card--verano" id="card-horario-verano">
-            <div class="horario-card-header">
-              <div class="horario-icon horario-icon--sun" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="5"/>
-                  <line x1="12" y1="1" x2="12" y2="3"/>
-                  <line x1="12" y1="21" x2="12" y2="23"/>
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                  <line x1="1" y1="12" x2="3" y2="12"/>
-                  <line x1="21" y1="12" x2="23" y2="12"/>
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-              </div>
-              <div class="horario-header-text">
-                <h3 class="horario-card-title">Horario de Verano</h3>
-                <span class="horario-badge">15 Jun — 15 Sep</span>
-              </div>
-            </div>
-            <table class="horario-table" aria-label="Horario de verano del taller">
-              <thead>
-                <tr>
-                  <th scope="col">Día</th>
-                  <th scope="col" colspan="2">Horario Continuo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr data-day="1"><td><span class="day-chip">Lunes</span></td>    <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
-                <tr data-day="2"><td><span class="day-chip">Martes</span></td>   <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
-                <tr data-day="3"><td><span class="day-chip">Miércoles</span></td><td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
-                <tr data-day="4"><td><span class="day-chip">Jueves</span></td>   <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
-                <tr data-day="5"><td><span class="day-chip">Viernes</span></td>  <td colspan="2"><span class="time-badge">08:00 – 15:00</span></td></tr>
-                <tr data-day="6" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Sábado</span></td>  <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
-                <tr data-day="0" class="horario-cerrado"><td><span class="day-chip day-chip--weekend">Domingo</span></td> <td colspan="2"><span class="closed-badge">Cerrado</span></td></tr>
-              </tbody>
-            </table>
-          </div><!-- /.horario-card--verano -->
-
-        </div><!-- /.horarios-grid -->
+          <p class="horario-note" id="horario-note">Del 15 de junio al 15 de septiembre: horario de verano, de 08:00 a 15:00 h.</p>
+        </div><!-- /.horario-card -->
       </div>
     </section>
 

@@ -50,7 +50,7 @@
   --color-dark-2:           #111927;
   --color-dark-3:           #182336;
   --color-dark-surface:     rgba(17, 25, 39, 0.75);
-  --color-dark-nav:         rgba(10, 15, 24, 0.90);
+  --color-dark-nav:         rgba(10, 15, 24, 0.97);
 
   /* Fondos claros */
   --color-light:            #f8fafc;
@@ -362,8 +362,6 @@ table {
   background: rgba(255, 255, 255, 0.07);
   color: var(--color-text-light);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 .btn--ghost:hover {
   background: rgba(255, 255, 255, 0.14);
@@ -408,8 +406,6 @@ table {
   z-index: 100;
   height: var(--nav-h);
   background: var(--color-dark-nav);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--color-border-dark);
   transition: background var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
 }
@@ -660,7 +656,6 @@ table {
 .hero-bg-glow {
   position: absolute;
   border-radius: var(--r-full);
-  filter: blur(90px);
   opacity: 0.45;
 }
 
@@ -809,8 +804,6 @@ table {
   border-radius: var(--r-xl);
   padding: var(--sp-lg);
   box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   position: relative;
   width: 100%;
   max-width: 440px;
@@ -977,7 +970,7 @@ table {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-xs);
-  transition: all var(--t-fast);
+  transition: color var(--t-fast), background-color var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
 }
 
 .filter-btn:hover {
@@ -1402,90 +1395,37 @@ table {
   margin-top: 0.1rem;
 }
 
-/* Banner verano */
-.verano-banner {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  background: linear-gradient(135deg, #fef9c3, #fef08a);
-  border: 1px solid #fde047;
-  border-radius: var(--r-lg);
-  padding: 0.85rem 1.25rem;
-  margin-bottom: var(--sp-lg);
-  color: #713f12;
-  box-shadow: var(--shadow-xs);
-}
-
-.verano-banner-icon {
-  font-size: 1.4rem;
-}
-
-.verano-banner-text strong {
-  display: block;
-  font-size: var(--text-sm);
-  font-weight: 700;
-}
-
-.verano-banner-text span {
-  font-size: var(--text-xs);
-}
-
-/* Grilla de horarios */
-.horarios-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--sp-lg);
-}
-
+/* Tarjeta única de horario: solo se muestra el horario vigente */
 .horario-card {
+  max-width: 720px;
+  margin: 0 auto;
   background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-xl);
   padding: var(--sp-lg);
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  overflow: hidden;
-  transition: transform var(--t-base), box-shadow var(--t-base);
-}
-
-.horario-card:hover {
   box-shadow: var(--shadow-md);
-}
-
-.horario-card--verano {
-  background: linear-gradient(145deg, #ffffff, #fffaf5);
-  border-color: rgba(255, 102, 0, 0.28);
 }
 
 .horario-card-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin-bottom: var(--sp-md);
-  padding-bottom: var(--sp-sm);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .horario-icon {
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   border-radius: var(--r-md);
-  background: var(--color-light-2);
-  color: var(--color-text-dark);
+  background: var(--color-accent-light);
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.horario-icon--sun {
-  background: rgba(255, 102, 0, 0.12);
-  color: var(--color-accent);
-}
-
-.horario-header-text {
-  flex: 1;
-}
+.horario-header-text { flex: 1; min-width: 0; }
 
 .horario-card-title {
   font-size: var(--text-lg);
@@ -1495,106 +1435,104 @@ table {
 }
 
 .horario-sub {
+  display: block;
   font-size: var(--text-xs);
   color: var(--color-text-dark-3);
-  display: block;
   margin-top: 0.15rem;
 }
 
 .horario-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.8rem;
   background: var(--gradient-accent);
   color: #ffffff;
   border-radius: var(--r-full);
   font-size: var(--text-2xs);
   font-weight: 700;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
-/* Tabla de horarios */
-.horario-table {
-  width: 100%;
+/* Franjas horarias grandes y legibles */
+.horario-slots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-md);
 }
+.horario-slots[hidden] { display: none; }
+.horario-slots--single { grid-template-columns: 1fr; }
 
-.horario-table th {
-  padding: 0.65rem 0.85rem;
+.slot {
   background: var(--color-light-2);
-  color: var(--color-text-dark-2);
-  font-weight: 700;
-  text-align: left;
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  padding: 1rem 1.1rem;
+  text-align: center;
+}
+.slot-label {
+  display: block;
   font-size: var(--text-2xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  border-bottom: 2px solid var(--color-border);
-}
-
-.horario-table td {
-  padding: 0.75rem 0.85rem;
-  border-bottom: 1px solid var(--color-border-subtle);
-  color: var(--color-text-dark);
-  font-size: var(--text-base);
-}
-
-.horario-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.day-chip {
-  font-weight: 600;
-  color: var(--color-text-dark);
-  font-size: var(--text-base);
-}
-
-.day-chip--weekend {
   color: var(--color-text-dark-3);
+  margin-bottom: 0.35rem;
 }
-
-.time-badge {
-  display: inline-block;
-  padding: 0.2rem 0.55rem;
-  background: var(--color-light-2);
-  border-radius: var(--r-sm);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-text-dark-2);
-}
-
-.closed-badge {
-  display: inline-block;
-  padding: 0.2rem 0.6rem;
-  background: rgba(239, 68, 68, 0.08);
-  color: #dc2626;
-  border-radius: var(--r-sm);
-  font-size: var(--text-xs);
-  font-weight: 600;
-}
-
-/* Día actual marcado */
-.horario-table tr.is-today {
-  background-color: rgba(255, 102, 0, 0.08) !important;
-}
-
-.horario-table tr.is-today td {
+.slot-time {
+  font-size: clamp(1.25rem, 3.4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: var(--color-text-dark);
+}
+
+/* Semana: de un vistazo qué días abrimos */
+.week-strip {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+  margin: 0 0 var(--sp-md);
+  padding: 0;
+}
+.week-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.65rem 0.25rem;
+  border-radius: var(--r-md);
+  background: var(--color-light-2);
+  color: var(--color-text-dark);
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+.week-day small {
+  font-size: var(--text-2xs);
   font-weight: 600;
+  color: #16a34a;
+}
+.week-day.is-closed { color: var(--color-text-dark-3); background: transparent; border: 1px dashed var(--color-border); }
+.week-day.is-closed small { color: #dc2626; }
+.week-day.is-today {
+  background: var(--color-accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-accent);
+}
+.week-day.is-today small { color: #ffffff; }
+
+/* Nota tenue sobre el otro horario del año */
+.horario-note {
+  margin: 0;
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--color-text-dark-3);
+  opacity: 0.7;
 }
 
-.horario-table tr.is-today .day-chip::after {
-  content: ' · Hoy';
-  font-size: 0.75em;
-  font-weight: 700;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  margin-left: 0.3rem;
+@media (max-width: 480px) {
+  .horario-slots { grid-template-columns: 1fr; }
+  .week-day { font-size: var(--text-xs); }
 }
-
-.horario-table tr.is-today .time-badge {
-  background: rgba(255, 102, 0, 0.15);
-  color: #c2410c;
-  font-weight: 700;
-}
-
 /* ==========================================================================
    10. SECCIÓN CONTACTO & UBICACIÓN
    ========================================================================== */
@@ -1619,7 +1557,7 @@ table {
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: var(--r-md);
   padding: var(--sp-md);
-  transition: all var(--t-fast);
+  transition: color var(--t-fast), background-color var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
   color: var(--color-text-light);
 }
 
@@ -2087,4 +2025,229 @@ table {
   .btn--nav-cta {
     border: 2px solid ButtonText;
   }
+}
+
+/* ==========================================================================
+   17. ANIMACIONES ELEGANTES (reveal, hero, spotlight, progreso)
+   Solo transform/opacity. Se activan únicamente si JS añade .js a <html>.
+   ========================================================================== */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Barra de progreso de scroll */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--scroll, 0));
+  z-index: 1100;
+  pointer-events: none;
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+/* Reveal al hacer scroll */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+  transition-delay: var(--delay, 0ms);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Las tarjetas recuperan su transición de hover tras revelarse */
+.js .service-card.reveal.is-visible {
+  transition:
+    transform var(--t-base),
+    box-shadow var(--t-base),
+    border-color var(--t-base);
+  transition-delay: 0ms;
+}
+
+/* Entrada escalonada del hero (al cargar) */
+.js .hero-title-line,
+.js .hero-title-accent,
+.js .hero-subtitle,
+.js .hero-actions,
+.js .hero-trust-pills,
+.js .hero-visual {
+  opacity: 0;
+  animation: heroIn 0.9s var(--ease-out) forwards;
+}
+.js .hero-title-line,
+.js .hero-title-accent { display: block; }
+.js .hero-title-line   { animation-delay: 0.10s; }
+.js .hero-title-accent { animation-delay: 0.25s; }
+.js .hero-subtitle     { animation-delay: 0.40s; }
+.js .hero-actions      { animation-delay: 0.55s; }
+.js .hero-trust-pills  { animation-delay: 0.70s; }
+.js .hero-visual       { animation-delay: 0.45s; }
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Texto de acento con gradiente que respira */
+.hero-title-accent {
+  background: linear-gradient(100deg, #ff6600 0%, #ffa24d 50%, #ff6600 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.js .hero-title-accent {
+  animation: heroIn 0.9s var(--ease-out) 0.25s forwards;
+}
+
+/* Brillo (shimmer) en el botón principal */
+.btn--primary { position: relative; overflow: hidden; }
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+.btn--primary:hover::after {
+  transform: translateX(120%);
+  transition: transform 0.9s var(--ease-out);
+}
+
+/* Spotlight que sigue al cursor en tarjetas */
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 102, 0, 0.12), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--t-base);
+  pointer-events: none;
+}
+.service-card:hover::after { opacity: 1; }
+
+.service-card-icon { transition: transform 0.5s var(--ease-out); }
+.service-card:hover .service-card-icon {
+  transform: translateY(-2px) rotate(-6deg) scale(1.06);
+}
+
+/* Aparición suave al filtrar servicios */
+.service-card.is-filtering-in {
+  animation: cardIn 0.5s var(--ease-out) both;
+  animation-delay: var(--delay, 0ms);
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Tarjeta del hero con inclinación 3D (solo puntero fino) */
+.hero-card-featured {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.4s var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal,
+  .js .hero-title-line,
+  .js .hero-title-accent,
+  .js .hero-subtitle,
+  .js .hero-actions,
+  .js .hero-trust-pills,
+  .js .hero-visual {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .js .hero-title-accent,
+  .hero-card-featured { transform: none !important; }
+  .scroll-progress { display: none; }
+}
+/* ==========================================================================
+   18. ENGRANAJES DE FONDO DEL HERO (SVG + rotación CSS, ligero)
+   ========================================================================== */
+.hero-gears {
+  position: absolute;
+  top: -4%;
+  right: -6%;
+  width: min(62vw, 820px);
+  aspect-ratio: 800 / 720;
+  color: var(--color-accent);
+  opacity: 0.55;
+  -webkit-mask-image: linear-gradient(to left, #000 35%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 35%, transparent 100%);
+  pointer-events: none;
+  contain: layout paint;
+}
+
+.gear {
+  position: absolute;
+  display: block;
+  transform: rotate(var(--a0, 0deg));
+  animation: gearSpin var(--dur, 90s) linear infinite;
+  animation-direction: var(--dir, normal);
+}
+
+.gear path,
+.gear circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+.gear .gear-body { fill: rgba(255, 102, 0, 0.05); stroke-width: 1.6; }
+.gear .gear-soft { opacity: 0.45; }
+
+.hero-gears.is-paused .gear { animation-play-state: paused; }
+
+@keyframes gearSpin {
+  from { transform: rotate(var(--a0, 0deg)); }
+  to   { transform: rotate(calc(var(--a0, 0deg) + 360deg)); }
+}
+
+@media (max-width: 899px) {
+  .hero-gears {
+    width: 120vw;
+    right: -35%;
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gear { animation: none; }
+}
+/* Hero móvil: cita a ancho completo; llamar y WhatsApp en una fila */
+@media (max-width: 639px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .hero-actions .btn--primary { grid-column: 1 / -1; }
+}
+/* Tira de semana: nunca desborda la tarjeta en móvil */
+.week-strip { min-width: 0; }
+.week-day { min-width: 0; }
+@media (max-width: 480px) {
+  .week-strip { gap: 0.25rem; }
+  .week-day { padding: 0.55rem 0.1rem; }
+  .week-day small { font-size: 0.625rem; }
 }
