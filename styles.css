@@ -1910,10 +1910,10 @@ table {
   }
 }
 
-/* ==========================================================================
-   14. MEDIA QUERIES — DESKTOP (≥ 960px)
-   ========================================================================== */
-@media (min-width: 960px) {
+/* Navegación completa en una fila desde 1024px (iPad horizontal incluido).
+   Logo y espaciados compactos para que "Solicitar cita" nunca quede recortado.
+   Por debajo de 1024px se usa el menú hamburguesa. */
+@media (min-width: 1024px) {
   .nav-toggle {
     display: none;
   }
@@ -1957,11 +1957,74 @@ table {
   }
 
   .btn--nav-cta {
-    padding: 0.55rem 1rem;
+    padding: 0.5rem 0.85rem;
     font-size: var(--text-sm);
     white-space: nowrap;
   }
 
+  /* --- Compactación para que quepa la barra completa --- */
+  .nav-container {
+    gap: 0.75rem;
+    padding-inline: 1.25rem;
+  }
+
+  .nav-logo {
+    gap: 0.5rem;
+  }
+
+  .nav-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-logo-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-logo-text {
+    font-size: 1rem;
+  }
+
+  .nav-logo-tag {
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-img {
+    height: 38px;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.5rem;
+  }
+
+  .nav-phone-item,
+  .nav-cta-item {
+    margin-left: 0.15rem;
+  }
+
+  .nav-phone-link {
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+/* Anchos justos (iPad Air 10.9" antiguo, etc.): el teléfono ya está en el hero
+   y en el pie, así que se omite de la barra para dar prioridad a "Solicitar cita". */
+@media (min-width: 1024px) and (max-width: 1139px) {
+  .nav-phone-item {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   14. MEDIA QUERIES — DESKTOP (≥ 960px)
+   ========================================================================== */
+@media (min-width: 960px) {
   .hero-inner {
     grid-template-columns: 1.25fr 1fr;
     gap: var(--sp-2xl);
@@ -2227,6 +2290,15 @@ table {
 
 @media (prefers-reduced-motion: reduce) {
   .gear { animation: none; }
+}
+/* Móvil/tablet: los botones del hero se muestran desde el primer pintado.
+   Evita el hueco vacío seguido de una aparición abrupta (opacity:0 + delay). */
+@media (max-width: 899px) {
+  .js .hero-actions {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
 /* Hero móvil: cita a ancho completo; llamar y WhatsApp en una fila */
 @media (max-width: 639px) {
